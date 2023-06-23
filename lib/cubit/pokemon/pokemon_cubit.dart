@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter_modular/utils/extensions.dart';
+import 'package:pokedex/utils/extensions.dart';
 import 'package:pokemon/pokemon.dart';
 
 part 'pokemon_state.dart';

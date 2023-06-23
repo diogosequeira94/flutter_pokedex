@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex/cubit/generation/generation_cubit.dart';
 import 'package:pokedex/cubit/pokemon/pokemon_cubit.dart';
+import 'package:pokedex/view/pokemon_landing_page.dart';
 import 'package:pokemon/pokemon.dart';
 
 void main() {

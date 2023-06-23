@@ -1,7 +1,4 @@
 library pokemon;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'package:pokemon/src/api/pokemon_api_client.dart';
+export 'package:pokemon/src/api/models/models.dart';
