@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex/cubit/pokemon/pokemon_cubit.dart';
-import 'package:pokedex/view/details/abilities_section.dart';
-import 'package:pokedex/view/details/height_weight_widget.dart';
-import 'package:pokedex/view/details/poke_description.dart';
-import 'package:pokedex/view/details/poke_sprite_info.dart';
-import 'package:pokedex/view/details/stats_widget.dart';
-import 'package:pokedex/view/details/type_pills_widget.dart';
+import 'package:pokedex/view/details_page/details_page.dart';
 
 class PokemonDetailsPage extends StatelessWidget {
   final String pokemonName;
