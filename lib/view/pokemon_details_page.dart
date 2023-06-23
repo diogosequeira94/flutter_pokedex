@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pokedex/cubit/pokemon/pokemon_cubit.dart';
+import 'package:pokedex/cubit/pokemon_details/pokemon_cubit.dart';
 import 'package:pokedex/view/details_page/details_page.dart';
+import 'package:pokedex/view/details_page/tabs_section.dart';
 
 class PokemonDetailsPage extends StatelessWidget {
   final String pokemonName;
@@ -58,7 +59,8 @@ class PokemonDetailsPage extends StatelessWidget {
                   //   ],
                   // ),
                   const SizedBox(height: 40.0),
-                  StatsWidget(statsList: state.pokemon.stats),
+                  TabsSection(statsList: state.pokemon.stats),
+                  //StatsWidget(statsList: state.pokemon.stats),
                 ],
               ),
             );

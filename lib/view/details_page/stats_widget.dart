@@ -9,111 +9,96 @@ class StatsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     const maxContainerWidth = 300.0;
     const maxContainerHeight = 21.0;
-    const containerTopCornersRadius = 25.0;
     const statsPillRadius = 40.0;
 
-    return Container(
-      decoration: const BoxDecoration(
-        color: Colors.red,
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(containerTopCornersRadius),
-          topRight: Radius.circular(containerTopCornersRadius),
-        ),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(10.0, 30.0, 10.0, 30.0),
-        child: Column(
-          children: [
-            const Text(
-              'Base Stats',
-              style: TextStyle(fontSize: 24.0, color: Colors.white),
-            ),
-            const SizedBox(height: 25.0),
-            for (final stats in statsList)
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 4.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Text(
-                      _getStatTag(stats.stat!.name!),
-                      style: const TextStyle(color: Colors.white),
-                    ),
-                    Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        Stack(
-                          children: [
-                            Container(
-                              height: maxContainerHeight,
-                              width: maxContainerWidth,
-                              decoration: const BoxDecoration(
-                                color: Colors.grey,
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(statsPillRadius),
-                                ),
-                              ),
-                              padding: const EdgeInsets.symmetric(
-                                vertical: 4.0,
-                                horizontal: 12.0,
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(10.0, 30.0, 10.0, 30.0),
+      child: Column(
+        children: [
+          for (final stats in statsList)
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 4.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text(
+                    _getStatTag(stats.stat!.name!),
+                    style: const TextStyle(color: Colors.white),
+                  ),
+                  Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Stack(
+                        children: [
+                          Container(
+                            height: maxContainerHeight,
+                            width: maxContainerWidth,
+                            decoration: const BoxDecoration(
+                              color: Colors.grey,
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(statsPillRadius),
                               ),
                             ),
-                            Container(
-                              height: maxContainerHeight,
-                              width: _calculateStatFillWidth(
-                                  maxContainerWidth, stats.value!),
-                              decoration: BoxDecoration(
-                                color: _getStatColor(stats.stat!.name!),
-                                borderRadius: const BorderRadius.all(
-                                  Radius.circular(statsPillRadius),
-                                ),
-                              ),
-                              padding: const EdgeInsets.symmetric(
-                                  vertical: 4.0, horizontal: 12.0),
-                              child: Center(
-                                child: Text(
-                                  '${stats.value.toString()}/150',
-                                  style: const TextStyle(
-                                      color: Colors.transparent,
-                                      fontSize: 11.5),
-                                ),
-                              ),
+                            padding: const EdgeInsets.symmetric(
+                              vertical: 4.0,
+                              horizontal: 12.0,
                             ),
-                            Container(
-                              height: maxContainerHeight,
-                              width: maxContainerWidth,
-                              decoration: BoxDecoration(
-                                color: Colors.transparent,
-                                borderRadius: const BorderRadius.all(
-                                  Radius.circular(statsPillRadius),
-                                ),
-                                border: Border.all(
-                                  color: Colors
-                                      .white, //                   <--- border color
-                                  width: 1.0,
-                                ),
-                              ),
-                              padding: const EdgeInsets.symmetric(
-                                vertical: 4.0,
-                                horizontal: 12.0,
-                              ),
-                            ),
-                          ],
-                        ),
-                        Center(
-                          child: Text(
-                            '${stats.value.toString()}/150',
-                            style: const TextStyle(
-                                color: Colors.white, fontSize: 13.0),
                           ),
+                          Container(
+                            height: maxContainerHeight,
+                            width: _calculateStatFillWidth(
+                                maxContainerWidth, stats.value!),
+                            decoration: BoxDecoration(
+                              color: _getStatColor(stats.stat!.name!),
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(statsPillRadius),
+                              ),
+                            ),
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 4.0, horizontal: 12.0),
+                            child: Center(
+                              child: Text(
+                                '${stats.value.toString()}/150',
+                                style: const TextStyle(
+                                    color: Colors.transparent,
+                                    fontSize: 11.5),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            height: maxContainerHeight,
+                            width: maxContainerWidth,
+                            decoration: BoxDecoration(
+                              color: Colors.transparent,
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(statsPillRadius),
+                              ),
+                              border: Border.all(
+                                color: Colors
+                                    .white, //                   <--- border color
+                                width: 1.0,
+                              ),
+                            ),
+                            padding: const EdgeInsets.symmetric(
+                              vertical: 4.0,
+                              horizontal: 12.0,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Center(
+                        child: Text(
+                          '${stats.value.toString()}/150',
+                          style: const TextStyle(
+                              color: Colors.white, fontSize: 13.0),
                         ),
-                      ],
-                    ),
-                  ],
-                ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
-          ],
-        ),
+            ),
+        ],
       ),
     );
   }
