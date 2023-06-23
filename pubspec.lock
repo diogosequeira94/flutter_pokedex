@@ -387,6 +387,13 @@ packages:
       url: "https://mobile20unpubfrontdoor.azurefd.net"
     source: hosted
     version: "1.8.2"
+  pokemon:
+    dependency: "direct main"
+    description:
+      path: "repositories/pokemon"
+      relative: true
+    source: path
+    version: "0.0.1"
   pool:
     dependency: transitive
     description:
@@ -562,4 +569,4 @@ packages:
     version: "3.1.2"
 sdks:
   dart: ">=2.19.6 <3.0.0"
-  flutter: ">=1.16.0"
+  flutter: ">=1.17.0"
