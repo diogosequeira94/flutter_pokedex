@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex/cubit/generation/generation_cubit.dart';
-import 'package:pokedex/cubit/pokemon_details/pokemon_cubit.dart';
+import 'package:pokedex/cubit/pokemon_details/pokemon_details_cubit.dart';
+import 'package:pokedex/utils/constants.dart';
 import 'package:pokedex/utils/extensions.dart';
 import 'package:pokedex/view/pokemon_details_page.dart';
 
@@ -23,7 +24,7 @@ class PokemonLandingPage extends StatelessWidget {
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(top: 60.0),
-                    child: Image.asset('assets/pokedex.png'),
+                    child: Image.asset(Constants.pokedexAssetPath),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(
@@ -44,13 +45,13 @@ class PokemonLandingPage extends StatelessWidget {
                         return GestureDetector(
                           onTap: () {
                             context
-                                .read<PokemonCubit>()
+                                .read<PokemonDetailsCubit>()
                                 .fetchPokemonByName(pokeItem.name);
                             Navigator.push(
                               context,
                               MaterialPageRoute(
                                 builder: (_) => BlocProvider.value(
-                                  value: context.read<PokemonCubit>(),
+                                  value: context.read<PokemonDetailsCubit>(),
                                   child: PokemonDetailsPage(
                                       pokemonName: pokeItem.name.capitalize(),
                                       pokemonIndex: index + 1),

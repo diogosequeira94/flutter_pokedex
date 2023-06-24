@@ -27,7 +27,7 @@ class WeaknessesWidget extends StatelessWidget {
                 color: _getPillColor(weakness),
                 margin: const EdgeInsets.all(4.0),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(6.0),
+                  borderRadius: BorderRadius.circular(Constants.weaknessesCardBorderRadius),
                 ),
                 elevation: 2.0,
                 child: Padding(

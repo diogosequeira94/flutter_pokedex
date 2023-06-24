@@ -26,8 +26,8 @@ class MyApp extends StatelessWidget {
             pokemonApiClient: pokemonApiClient,
           ),
         ),
-        BlocProvider<PokemonCubit>(
-          create: (context) => PokemonCubit(
+        BlocProvider<PokemonDetailsCubit>(
+          create: (context) => PokemonDetailsCubit(
             pokemonApiClient,
           ),
         ),

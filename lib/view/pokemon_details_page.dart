@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pokedex/cubit/pokemon_details/pokemon_cubit.dart';
+import 'package:pokedex/cubit/pokemon_details/pokemon_details_cubit.dart';
 import 'package:pokedex/view/details_page/details_page.dart';
 import 'package:pokedex/view/details_page/tabs_section.dart';
 
@@ -20,7 +20,7 @@ class PokemonDetailsPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Pokemon Details'),
       ),
-      body: BlocBuilder<PokemonCubit, PokemonState>(
+      body: BlocBuilder<PokemonDetailsCubit, PokemonDetails>(
         builder: (context, state) {
           if (state is PokemonInformationInProgress) {
             return const Center(

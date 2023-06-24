@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/utils/constants.dart';
 import 'package:pokedex/view/details_page/about/about_widget.dart';
 import 'package:pokedex/view/details_page/details_page.dart';
 import 'package:pokedex/view/details_page/moves_widget.dart';
@@ -15,8 +16,8 @@ class TabsSection extends StatelessWidget {
       decoration: const BoxDecoration(
         color: Colors.redAccent,
         borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(22.0),
-          topRight: Radius.circular(22.0),
+          topLeft: Radius.circular(Constants.tabsTopBorderRadius),
+          topRight: Radius.circular(Constants.tabsTopBorderRadius),
         ),
       ),
       child: DefaultTabController(

@@ -3,23 +3,22 @@ import 'package:equatable/equatable.dart';
 import 'package:pokedex/utils/extensions.dart';
 import 'package:pokemon/pokemon.dart';
 
-part 'pokemon_state.dart';
+part 'pokemon_details_state.dart';
 
-class PokemonCubit extends Cubit<PokemonState> {
+class PokemonDetailsCubit extends Cubit<PokemonDetails> {
   final PokemonApiClient pokemonApiClient;
-  PokemonCubit(this.pokemonApiClient) : super(PokemonInitial());
+  PokemonDetailsCubit(this.pokemonApiClient) : super(PokemonInitial());
 
   Future<void> fetchPokemonByName(String name) async {
     emit(PokemonInformationInProgress());
-    print('GETTING POKE!');
     try {
       final pokemonBaseInfo = await pokemonApiClient.getPokemonByName(name);
 
       final pokemonSpeciesInfo =
           await pokemonApiClient.getSpeciesInformation(name);
 
-      final firstDescription = pokemonSpeciesInfo
-          .flavorTextEntries[0].flavorText.formatTrivia();
+      final firstDescription =
+          pokemonSpeciesInfo.flavorTextEntries[0].flavorText.formatTrivia();
 
       final pokemon = pokemonBaseInfo.copyWith(
         description: firstDescription,
@@ -28,7 +27,6 @@ class PokemonCubit extends Cubit<PokemonState> {
 
       emit(PokemonInformationSuccess(pokemon: pokemon));
     } on Object catch (e) {
-      print('EXCEPTION WAS ${e.toString}');
       emit(PokemonInformationFailure(errorMessage: e.toString()));
     }
   }
