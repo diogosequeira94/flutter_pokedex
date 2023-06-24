@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
     final pokemonApiClient = PokemonApiClient();
     return MaterialApp(
       title: 'Pokedex Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),

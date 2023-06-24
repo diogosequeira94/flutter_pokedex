@@ -18,7 +18,7 @@ class PokemonDetailsPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text(pokemonName),
+        title: const Text('Pokemon Details'),
       ),
       body: BlocBuilder<PokemonCubit, PokemonState>(
         builder: (context, state) {
@@ -41,7 +41,7 @@ class PokemonDetailsPage extends StatelessWidget {
                   const SizedBox(height: 30.0),
                   PokeDescription(description: pokemon.description!),
                   Padding(
-                    padding: const EdgeInsets.only(top: 60.0),
+                    padding: const EdgeInsets.only(top: 50.0),
                     child: TabsSection(
                       pokemon: state.pokemon,
                     ),
