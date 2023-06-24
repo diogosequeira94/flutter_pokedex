@@ -11,8 +11,8 @@ class AboutWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 28.0),
-      child: Column(
+      padding: const EdgeInsets.only(top: 28.0, left: 8.0, right: 8.0),
+      child: ListView(
         children: [
           Row(
             children: [
@@ -63,7 +63,8 @@ class AboutWidget extends StatelessWidget {
                 style: TextStyle(color: Colors.white, fontSize: 16.0),
               ),
               const SizedBox(width: 15.0),
-              Row(
+              Wrap(
+                alignment: WrapAlignment.start,
                 children: [
                   for (final ability in pokemon.abilities)
                     Card(

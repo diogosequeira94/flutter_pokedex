@@ -12,7 +12,7 @@ class StatsWidget extends StatelessWidget {
     const statsPillRadius = 40.0;
 
     return Padding(
-      padding: const EdgeInsets.fromLTRB(10.0, 30.0, 10.0, 30.0),
+      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 30.0),
       child: Column(
         children: [
           for (final stats in statsList)

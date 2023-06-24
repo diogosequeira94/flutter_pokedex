@@ -11,7 +11,7 @@ class TabsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 24.0, horizontal: 12.0),
+      padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 12.0),
       decoration: const BoxDecoration(
         color: Colors.redAccent,
         borderRadius: BorderRadius.only(

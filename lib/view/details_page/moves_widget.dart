@@ -9,7 +9,7 @@ class MovesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 20.0),
+      padding: const EdgeInsets.only(top: 20.0, bottom: 10.0),
       child: ListView(
         children: [
           Wrap(

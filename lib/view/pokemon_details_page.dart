@@ -41,7 +41,7 @@ class PokemonDetailsPage extends StatelessWidget {
                   const SizedBox(height: 30.0),
                   PokeDescription(description: pokemon.description!),
                   Padding(
-                    padding: const EdgeInsets.only(top: 50.0),
+                    padding: const EdgeInsets.only(top: 45.0),
                     child: TabsSection(
                       pokemon: state.pokemon,
                     ),
