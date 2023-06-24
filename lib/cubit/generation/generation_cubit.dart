@@ -5,13 +5,13 @@ import 'package:pokemon/pokemon.dart';
 part 'generation_state.dart';
 
 class GenerationCubit extends Cubit<GenerationState> {
-  final PokemonApiClient pokemonApiClient;
-  GenerationCubit({required this.pokemonApiClient}) : super(GenerationInitial());
+  final PokemonRepository pokemonRepository;
+  GenerationCubit({required this.pokemonRepository}) : super(GenerationInitial());
 
   Future<void> fetchPokemonGeneration() async {
     emit(FetchFirstGenInProgress());
     try {
-      final response = await pokemonApiClient.getFirstPokemonGen();
+      final response = await pokemonRepository.getFirstPokemonGen();
       emit(FetchFirstGenSuccess(pokemonList: response.pokemonItems));
     } on Object catch (e) {
       emit(FetchFirstGenFailure(errorMessage: e.toString()));

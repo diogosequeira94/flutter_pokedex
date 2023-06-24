@@ -13,7 +13,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final pokemonApiClient = PokemonApiClient();
     return MaterialApp(
       title: 'Pokedex Demo',
       debugShowCheckedModeBanner: false,
@@ -23,12 +22,12 @@ class MyApp extends StatelessWidget {
       home: MultiBlocProvider(providers: [
         BlocProvider<GenerationCubit>(
           create: (context) => GenerationCubit(
-            pokemonApiClient: pokemonApiClient,
+            pokemonRepository: PokemonRepository.instance,
           ),
         ),
         BlocProvider<PokemonDetailsCubit>(
           create: (context) => PokemonDetailsCubit(
-            pokemonApiClient,
+            PokemonRepository.instance,
           ),
         ),
       ], child: const PokemonLandingPage()),

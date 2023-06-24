@@ -6,16 +6,16 @@ import 'package:pokemon/pokemon.dart';
 part 'pokemon_details_state.dart';
 
 class PokemonDetailsCubit extends Cubit<PokemonDetails> {
-  final PokemonApiClient pokemonApiClient;
-  PokemonDetailsCubit(this.pokemonApiClient) : super(PokemonInitial());
+  final PokemonRepository pokemonRepository;
+  PokemonDetailsCubit(this.pokemonRepository) : super(PokemonInitial());
 
   Future<void> fetchPokemonByName(String name) async {
     emit(PokemonInformationInProgress());
     try {
-      final pokemonBaseInfo = await pokemonApiClient.getPokemonByName(name);
+      final pokemonBaseInfo = await pokemonRepository.getPokemonByName(name: name);
 
       final pokemonSpeciesInfo =
-          await pokemonApiClient.getSpeciesInformation(name);
+          await pokemonRepository.getSpeciesInformation(name: name);
 
       final firstDescription =
           pokemonSpeciesInfo.flavorTextEntries[0].flavorText.formatTrivia();
