@@ -46,10 +46,13 @@ class TabsSection extends StatelessWidget {
               Expanded(
                 child: TabBarView(
                   children: <Widget>[
-                    AboutWidget(pokemon: pokemon, abilities: pokemon.abilities),
+                    AboutWidget(pokemon: pokemon),
                     StatsWidget(statsList: pokemon.stats),
                     const Center(
-                      child: Text('Under implementation...', style: TextStyle(color: Colors.white, fontSize: 18.0),),
+                      child: Text(
+                        'Under implementation...',
+                        style: TextStyle(color: Colors.white, fontSize: 18.0),
+                      ),
                     ),
                     MovesWidget(moves: pokemon.moves),
                   ],

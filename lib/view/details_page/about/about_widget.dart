@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/utils/extensions.dart';
+import 'package:pokedex/utils/constants.dart';
+import 'package:pokedex/view/details_page/about/abilities_widget.dart';
 import 'package:pokedex/view/details_page/about/weaknesses_widget.dart';
 import 'package:pokemon/pokemon.dart';
 
 class AboutWidget extends StatelessWidget {
   final Pokemon pokemon;
-  final List<Abilities> abilities;
-  const AboutWidget({Key? key, required this.abilities, required this.pokemon}) : super(key: key);
+  const AboutWidget({Key? key, required this.pokemon}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,88 +14,60 @@ class AboutWidget extends StatelessWidget {
       padding: const EdgeInsets.only(top: 28.0, left: 8.0, right: 8.0),
       child: ListView(
         children: [
-          Row(
-            children: [
-              const Text(
-                'Height',
-                style: TextStyle(color: Colors.white, fontSize: 16.0),
-              ),
-              const SizedBox(width: 20.0),
-              Text(
-                '${(pokemon.height! / 10).toString()} m',
-                style: const TextStyle(color: Colors.white),
-              )
-            ],
+          _AboutItemWidget(
+            title: 'Height',
+            value: '${_formattedHeight(pokemon.height!).toString()} m',
           ),
           const SizedBox(height: 15.0),
-          Row(
-            children: [
-              const Text(
-                'Weight',
-                style: TextStyle(color: Colors.white, fontSize: 16.0),
-              ),
-              const SizedBox(width: 20.0),
-              Text(
-                '${(pokemon.weight! * 0.1).roundToDouble().toString()} kg',
-                style: const TextStyle(color: Colors.white),
-              )
-            ],
+          _AboutItemWidget(
+            title: 'Weight',
+            value: '${_formattedWeight(pokemon.weight!).toString()} kg',
           ),
           const SizedBox(height: 15.0),
-          Row(
-            children: [
-              const Text(
-                'Habitat',
-                style: TextStyle(color: Colors.white, fontSize: 16.0),
-              ),
-              const SizedBox(width: 20.0),
-              Text(
-                pokemon.habitat ?? 'N/A',
-                style: const TextStyle(color: Colors.white),
-              )
-            ],
-          ),
+          _AboutItemWidget(title: 'Habitat', value: pokemon.habitat),
           const SizedBox(height: 15.0),
-          Row(
-            children: [
-              const Text(
-                'Abilities',
-                style: TextStyle(color: Colors.white, fontSize: 16.0),
-              ),
-              const SizedBox(width: 15.0),
-              Wrap(
-                alignment: WrapAlignment.start,
-                children: [
-                  for (final ability in pokemon.abilities)
-                    Card(
-                      margin: const EdgeInsets.all(4.0),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(6.0),
-                      ),
-                      elevation: 2.0,
-                      child: Padding(
-                        padding: const EdgeInsets.all(6.0),
-                        child: Text(ability.ability!.name!.formatMove().capitalize()),
-                      ),
-                    ),
-                ],
-              )
-            ],
-          ),
+          AbilitiesWidget(abilities: pokemon.abilities),
           const SizedBox(height: 5.0),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
-                'Weaknesses',
-                style: TextStyle(color: Colors.white, fontSize: 16.0),
-              ),
-              const SizedBox(width: 15.0),
-              Flexible(child: WeaknessesWidget(types: pokemon.types)),
-            ],
-          ),
+          WeaknessesWidget(types: pokemon.types),
         ],
       ),
+    );
+  }
+
+  double _formattedWeight(int weight) {
+    return (weight * 0.1).roundToDouble();
+  }
+
+  double _formattedHeight(int height) {
+    return height / 10;
+  }
+}
+
+class _AboutItemWidget extends StatelessWidget {
+  final String title;
+  final String? value;
+
+  const _AboutItemWidget({
+    Key? key,
+    required this.title,
+    required this.value,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Text(
+          title,
+          style: const TextStyle(
+              color: Colors.white, fontSize: Constants.aboutEntryFontSize),
+        ),
+        const SizedBox(width: 20.0),
+        Text(
+          value ?? 'N/A',
+          style: const TextStyle(color: Colors.white),
+        )
+      ],
     );
   }
 }

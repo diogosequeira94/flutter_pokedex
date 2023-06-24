@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// Deprecated widget for HeightWeight
 class HeightWeightWidget extends StatelessWidget {
   final int? height, weight;
   const HeightWeightWidget(
@@ -19,7 +20,7 @@ class HeightWeightWidget extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.only(top: 8.0),
-              child: Text('${(height! / 10).toString()} m'),
+              child: Text('${_formattedHeight(height!).toString()} m'),
             ),
           ],
         ),
@@ -32,11 +33,19 @@ class HeightWeightWidget extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.only(top: 8.0),
-              child: Text('${(weight! * 0.1).roundToDouble().toString()} kg'),
+              child: Text('${_formattedWeight(weight!).toString()} kg'),
             ),
           ],
         ),
       ],
     );
+  }
+
+  double _formattedWeight(int weight) {
+    return (weight * 0.1).roundToDouble();
+  }
+
+  double _formattedHeight(int height) {
+    return height / 10;
   }
 }

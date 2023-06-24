@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/utils/constants.dart';
 import 'package:pokemon/pokemon.dart';
 import 'package:pokedex/utils/extensions.dart';
 
@@ -19,7 +20,7 @@ class MovesWidget extends StatelessWidget {
                 Card(
                   margin: const EdgeInsets.all(4.0),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(6.0),
+                    borderRadius: BorderRadius.circular(Constants.movePillBorderRadius),
                   ),
                   elevation: 2.0,
                   child: Padding(

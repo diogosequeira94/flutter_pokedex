@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/utils/constants.dart';
 import 'package:pokedex/utils/extensions.dart';
 import 'package:pokedex/view/details_page/about/weaknesses_utils.dart';
 import 'package:pokemon/pokemon.dart';
@@ -10,22 +11,32 @@ class WeaknessesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final weaknesses = calculateWeaknesses(types);
-    return Wrap(
-      alignment: WrapAlignment.start,
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        for (final weakness in weaknesses)
-          Card(
-            color: _getPillColor(weakness),
-            margin: const EdgeInsets.all(4.0),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(6.0),
-            ),
-            elevation: 2.0,
-            child: Padding(
-              padding: const EdgeInsets.all(6.0),
-              child: Text(weakness, style: const TextStyle(color: Colors.white),),
-            ),
-          ),
+        const Text(
+          'Weaknesses',
+          style: TextStyle(color: Colors.white, fontSize: Constants.aboutEntryFontSize),
+        ),
+        const SizedBox(width: 15.0),
+        Wrap(
+          alignment: WrapAlignment.start,
+          children: [
+            for (final weakness in weaknesses)
+              Card(
+                color: _getPillColor(weakness),
+                margin: const EdgeInsets.all(4.0),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(6.0),
+                ),
+                elevation: 2.0,
+                child: Padding(
+                  padding: const EdgeInsets.all(6.0),
+                  child: Text(weakness, style: const TextStyle(color: Colors.white),),
+                ),
+              ),
+          ],
+        ),
       ],
     );
   }
