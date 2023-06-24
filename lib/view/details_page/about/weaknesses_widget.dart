@@ -12,30 +12,38 @@ class WeaknessesWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final weaknesses = calculateWeaknesses(types);
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         const Text(
           'Weaknesses',
           style: TextStyle(color: Colors.white, fontSize: Constants.aboutEntryFontSize),
         ),
         const SizedBox(width: 15.0),
-        Wrap(
-          alignment: WrapAlignment.start,
-          children: [
-            for (final weakness in weaknesses)
-              Card(
-                color: _getPillColor(weakness),
-                margin: const EdgeInsets.all(4.0),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(Constants.weaknessesCardBorderRadius),
-                ),
-                elevation: 2.0,
-                child: Padding(
-                  padding: const EdgeInsets.all(6.0),
-                  child: Text(weakness, style: const TextStyle(color: Colors.white),),
-                ),
-              ),
-          ],
+        Expanded(
+          child: SizedBox(
+            width: double.infinity,
+            height: 40,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              physics: const AlwaysScrollableScrollPhysics(),
+              shrinkWrap: true,
+              itemCount: weaknesses.length,
+              itemBuilder: (BuildContext context, int i) {
+                return  Card(
+                  color: _getPillColor(weaknesses[i]),
+                  margin: const EdgeInsets.all(4.0),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(Constants.weaknessesCardBorderRadius),
+                  ),
+                  elevation: 2.0,
+                  child: Padding(
+                    padding: const EdgeInsets.all(6.0),
+                    child: Text(weaknesses[i], style: const TextStyle(color: Colors.white),),
+                  ),
+                );
+              },
+            ),
+          ),
         ),
       ],
     );
