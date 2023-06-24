@@ -15,7 +15,7 @@ Pokédex app built with Flutter & BLoC
 - [x] Pokemon Info
 - [x] Pokemon Info - Abilities
 - [x] Pokemon Info - Base Stats
-- [x] Pokemon Info - Moves (no design)
+- [x] Pokemon Info - Moves
 - [x] Pokemon Info / Species - About
 - [x] Details Screen Tabs
 - [ ] Pokemon Info - Evolution
