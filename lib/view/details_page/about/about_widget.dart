@@ -41,6 +41,7 @@ class AboutWidget extends StatelessWidget {
               )
             ],
           ),
+          const SizedBox(height: 15.0),
           Row(
             children: [
               const Text(
@@ -80,8 +81,17 @@ class AboutWidget extends StatelessWidget {
               )
             ],
           ),
-          const SizedBox(height: 15.0),
-          WeaknessesWidget(types: pokemon.types),
+          const SizedBox(height: 5.0),
+          Row(
+            children: [
+              const Text(
+                'Weaknesses',
+                style: TextStyle(color: Colors.white),
+              ),
+              const SizedBox(width: 15.0),
+              WeaknessesWidget(types: pokemon.types),
+            ],
+          ),
         ],
       ),
     );
