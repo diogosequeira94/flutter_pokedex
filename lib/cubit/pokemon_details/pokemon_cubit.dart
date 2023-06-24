@@ -14,9 +14,6 @@ class PokemonCubit extends Cubit<PokemonState> {
     print('GETTING POKE!');
     try {
       final pokemonBaseInfo = await pokemonApiClient.getPokemonByName(name);
-      final movesLength = pokemonBaseInfo.moves.length >= 4
-          ? pokemonBaseInfo.moves.sublist(0, 4)
-          : pokemonBaseInfo.moves;
 
       final pokemonSpeciesInfo =
           await pokemonApiClient.getSpeciesInformation(name);
@@ -26,7 +23,6 @@ class PokemonCubit extends Cubit<PokemonState> {
 
       final pokemon = pokemonBaseInfo.copyWith(
         description: firstDescription,
-        moves: movesLength,
       );
 
       emit(PokemonInformationSuccess(pokemon: pokemon));

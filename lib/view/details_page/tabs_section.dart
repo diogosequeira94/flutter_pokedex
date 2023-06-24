@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/view/details_page/about_widget.dart';
 import 'package:pokedex/view/details_page/details_page.dart';
+import 'package:pokedex/view/details_page/moves_widget.dart';
 import 'package:pokemon/pokemon.dart';
 
 class TabsSection extends StatelessWidget {
-  final List<Stats> statsList;
-  const TabsSection({Key? key, required this.statsList}) : super(key: key);
+  final Pokemon pokemon;
+  const TabsSection({Key? key, required this.pokemon}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(24.0),
+      padding: const EdgeInsets.symmetric(vertical: 24.0, horizontal: 12.0),
       decoration: const BoxDecoration(
         color: Colors.red,
         borderRadius: BorderRadius.only(
@@ -25,6 +26,8 @@ class TabsSection extends StatelessWidget {
           child: Column(
             children: <Widget>[
               const TabBar(
+                indicatorColor: Colors.white,
+                labelPadding: EdgeInsets.zero,
                 tabs: <Widget>[
                   Tab(
                     text: 'About',
@@ -44,9 +47,9 @@ class TabsSection extends StatelessWidget {
                 child: TabBarView(
                   children: <Widget>[
                     AboutWidget(),
-                    StatsWidget(statsList: statsList),
-                    StatsWidget(statsList: statsList),
-                    StatsWidget(statsList: statsList),
+                    StatsWidget(statsList: pokemon.stats),
+                    StatsWidget(statsList: pokemon.stats),
+                    MovesWidget(moves: pokemon.moves),
                   ],
                 ),
               ),

@@ -44,22 +44,12 @@ class PokemonDetailsPage extends StatelessWidget {
                   const SizedBox(height: 30.0),
                   PokeDescription(description: pokemon.description!),
                   const SizedBox(height: 30.0),
-                 AbilitiesSection(abilities: state.pokemon.abilities),
-                  // const SizedBox(height: 40.0),
-                  // const Text(
-                  //   'Moves',
-                  //   style: TextStyle(fontSize: 24.0),
-                  // ),
-                  // const SizedBox(height: 15.0),
-                  // Row(
-                  //   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  //   children: [
-                  //     for (final moves in state.pokemon.moves)
-                  //       Text(moves.move?.name?.capitalize() ?? 'Unknown'),
-                  //   ],
-                  // ),
+                  AbilitiesSection(abilities: state.pokemon.abilities),
+
                   const SizedBox(height: 40.0),
-                  TabsSection(statsList: state.pokemon.stats),
+                  TabsSection(
+                    pokemon: state.pokemon,
+                  ),
                   //StatsWidget(statsList: state.pokemon.stats),
                 ],
               ),
