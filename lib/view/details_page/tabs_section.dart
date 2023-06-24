@@ -13,7 +13,7 @@ class TabsSection extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 24.0, horizontal: 12.0),
       decoration: const BoxDecoration(
-        color: Colors.black87,
+        color: Colors.redAccent,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(22.0),
           topRight: Radius.circular(22.0),

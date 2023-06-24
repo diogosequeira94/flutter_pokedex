@@ -23,7 +23,7 @@ class PokemonCubit extends Cubit<PokemonState> {
 
       final pokemon = pokemonBaseInfo.copyWith(
         description: firstDescription,
-        habitat: pokemonSpeciesInfo.habitat.name,
+        habitat: pokemonSpeciesInfo.habitat.name.capitalize(),
       );
 
       emit(PokemonInformationSuccess(pokemon: pokemon));

@@ -18,7 +18,7 @@ class AboutWidget extends StatelessWidget {
             children: [
               const Text(
                 'Height',
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: Colors.white, fontSize: 16.0),
               ),
               const SizedBox(width: 20.0),
               Text(
@@ -32,7 +32,7 @@ class AboutWidget extends StatelessWidget {
             children: [
               const Text(
                 'Weight',
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: Colors.white, fontSize: 16.0),
               ),
               const SizedBox(width: 20.0),
               Text(
@@ -46,7 +46,7 @@ class AboutWidget extends StatelessWidget {
             children: [
               const Text(
                 'Habitat',
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: Colors.white, fontSize: 16.0),
               ),
               const SizedBox(width: 20.0),
               Text(
@@ -60,7 +60,7 @@ class AboutWidget extends StatelessWidget {
             children: [
               const Text(
                 'Abilities',
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: Colors.white, fontSize: 16.0),
               ),
               const SizedBox(width: 15.0),
               Row(
@@ -74,7 +74,7 @@ class AboutWidget extends StatelessWidget {
                       elevation: 2.0,
                       child: Padding(
                         padding: const EdgeInsets.all(6.0),
-                        child: Text(ability.ability!.name!.formatMove()),
+                        child: Text(ability.ability!.name!.formatMove().capitalize()),
                       ),
                     ),
                 ],
@@ -83,13 +83,14 @@ class AboutWidget extends StatelessWidget {
           ),
           const SizedBox(height: 5.0),
           Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
                 'Weaknesses',
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: Colors.white, fontSize: 16.0),
               ),
               const SizedBox(width: 15.0),
-              WeaknessesWidget(types: pokemon.types),
+              Flexible(child: WeaknessesWidget(types: pokemon.types)),
             ],
           ),
         ],
