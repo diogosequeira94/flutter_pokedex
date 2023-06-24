@@ -37,7 +37,7 @@ class _PokeSearchBoxState extends State<PokeSearchBox> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
-            'What Pokémon are you looking for?',
+            'Which Pokémon are you looking for?',
             style: TextStyle(fontSize: 19.0),
           ),
           Padding(
