@@ -15,7 +15,7 @@ class FetchFirstGenInProgress extends GenerationState {
 }
 
 class FetchFirstGenSuccess extends GenerationState {
-  final List<PokemonGenerationItem> pokemonList;
+  final List<PokemonBasicItem> pokemonList;
   const FetchFirstGenSuccess({required this.pokemonList});
   @override
   List<Object> get props => [pokemonList];

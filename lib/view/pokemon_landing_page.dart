@@ -4,6 +4,7 @@ import 'package:pokedex/cubit/generation/generation_cubit.dart';
 import 'package:pokedex/cubit/pokemon_details/pokemon_details_cubit.dart';
 import 'package:pokedex/utils/constants.dart';
 import 'package:pokedex/utils/extensions.dart';
+import 'package:pokedex/view/landing_page/poke_searchbox.dart';
 import 'package:pokedex/view/pokemon_details_page.dart';
 
 class PokemonLandingPage extends StatelessWidget {
@@ -14,6 +15,11 @@ class PokemonLandingPage extends StatelessWidget {
     return Scaffold(
       body: BlocBuilder<GenerationCubit, GenerationState>(
         builder: (context, state) {
+          if (state is FetchFirstGenFailure) {
+            return Center(
+              child: Text(state.errorMessage),
+            );
+          }
           if (state is FetchFirstGenInProgress) {
             return const Center(
               child: CircularProgressIndicator(),
@@ -26,9 +32,9 @@ class PokemonLandingPage extends StatelessWidget {
                     padding: const EdgeInsets.only(top: 60.0),
                     child: Image.asset(Constants.pokedexAssetPath),
                   ),
+                  const PokeSearchBox(),
                   Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 10.0, horizontal: 8.0),
+                    padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 10.0),
                     child: GridView.builder(
                       physics: const ScrollPhysics(),
                       shrinkWrap: true,
@@ -54,7 +60,7 @@ class PokemonLandingPage extends StatelessWidget {
                                   value: context.read<PokemonDetailsCubit>(),
                                   child: PokemonDetailsPage(
                                       pokemonName: pokeItem.name.capitalize(),
-                                      pokemonIndex: index + 1),
+                                      pokemonIndex: pokeItem.number),
                                 ),
                               ),
                             );
@@ -64,14 +70,14 @@ class PokemonLandingPage extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Image.asset(
-                                  'assets/gen1/${index + 1}.jpeg',
+                                  'assets/gen1/${pokeItem.name}.jpeg',
                                   fit: BoxFit.cover,
                                   width: 80.0,
                                   height: 80,
                                 ),
                                 const SizedBox(height: 4.0),
                                 Text(pokeItem.name.capitalize()),
-                                Text('#${index + 1}'),
+                                Text('#${pokeItem.number}'),
                               ],
                             ),
                           ),
