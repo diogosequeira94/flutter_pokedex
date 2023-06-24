@@ -18,6 +18,7 @@ Pokédex app built with Flutter & BLoC
 - [x] Pokemon Info - Moves
 - [x] Pokemon Info / Species - About
 - [x] Details Screen Tabs
+- [ ] SearchBox
 - [ ] Pokemon Info - Evolution
 - [ ] Local Cache
 - [ ] Improve Architecture
