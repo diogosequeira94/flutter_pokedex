@@ -5,7 +5,7 @@ part 'habitat.g.dart';
 
 @JsonSerializable()
 class Habitat extends Equatable {
-  @JsonKey(name: 'namne')
+  @JsonKey(name: 'name')
   final String name;
 
   const Habitat({

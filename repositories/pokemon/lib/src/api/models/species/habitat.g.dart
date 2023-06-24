@@ -7,9 +7,9 @@ part of 'habitat.dart';
 // **************************************************************************
 
 Habitat _$HabitatFromJson(Map<String, dynamic> json) => Habitat(
-      name: json['namne'] as String,
+      name: json['name'] as String,
     );
 
 Map<String, dynamic> _$HabitatToJson(Habitat instance) => <String, dynamic>{
-      'namne': instance.name,
+      'name': instance.name,
     };

@@ -1,8 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:pokemon/src/api/models/species/egg_groups.dart';
-import 'package:pokemon/src/api/models/species/flavor_text_entries.dart';
-import 'package:pokemon/src/api/models/species/habitat.dart';
+import 'species.dart';
 
 part 'species_response.g.dart';
 
