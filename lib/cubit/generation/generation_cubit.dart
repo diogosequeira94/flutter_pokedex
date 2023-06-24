@@ -36,11 +36,11 @@ class GenerationCubit extends Cubit<GenerationState> {
     }
   }
 
-  void searchBoxChanged(String input) async {
+  void searchBoxChanged(String query) async {
     var tempList = _pokemonList
         .where((pokemon) =>
-            pokemon.name.toLowerCase().contains(input.toLowerCase()))
+            pokemon.name.toLowerCase().contains(query.toLowerCase()))
         .toList();
-    emit(FetchFirstGenSuccess(pokemonList: tempList));
+    emit(SearchBoxChangedSuccess(pokemonList: tempList));
   }
 }

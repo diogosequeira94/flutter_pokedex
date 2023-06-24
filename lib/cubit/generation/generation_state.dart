@@ -27,3 +27,10 @@ class FetchFirstGenFailure extends GenerationState {
   @override
   List<Object> get props => [errorMessage];
 }
+
+class SearchBoxChangedSuccess extends FetchFirstGenSuccess {
+  const SearchBoxChangedSuccess({required List<PokemonBasicItem> pokemonList})
+      : super(pokemonList: pokemonList);
+  @override
+  List<Object> get props => [pokemonList];
+}
