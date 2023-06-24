@@ -1,16 +1,26 @@
-# pokedex
+# Pokedex
 
-Flutter Pokédex
+[![Awesome Flutter](https://img.shields.io/badge/Awesome-Flutter-blue.svg)](https://github.com/Solido/awesome-flutter)
+[![License](https://img.shields.io/badge/License-Apache%202.0-red.svg)](LICENSE)
+[![License](https://img.shields.io/badge/License-MIT-red.svg)](LICENSE)
 
-## Getting Started
+Pokedex app built with Flutter & BLoC
 
-This project is a starting point for a Flutter application.
+## Todos
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- [x] Home
+- [x] Details Screen
+- [x] Repository 
+- [x] Pokedex - Gen I Sprites
+- [x] Pokemon Info
+- [x] Pokemon Info - Abilities
+- [x] Pokemon Info - Base Stats
+- [x] Pokemon Info - Moves (no design)
+- [x] Pokemon Info / Species - About
+- [x] Details Screen Tabs
+- [ ] Pokemon Info - Evolution
+- [ ] Local Cache
+- [ ] Improve Architecture
+- [ ] Setup Actions
+- [ ] Themes Support
+- [ ] Repository Unit testing
