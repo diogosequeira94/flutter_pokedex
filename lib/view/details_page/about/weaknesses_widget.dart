@@ -37,7 +37,7 @@ class WeaknessesWidget extends StatelessWidget {
                   ),
                   elevation: 2.0,
                   child: Padding(
-                    padding: const EdgeInsets.all(6.0),
+                    padding: const EdgeInsets.symmetric(vertical: 6.0, horizontal: 8.0),
                     child: Text(weaknesses[i], style: const TextStyle(color: Colors.white),),
                   ),
                 );
