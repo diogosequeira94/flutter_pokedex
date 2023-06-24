@@ -21,6 +21,7 @@ Pokédex app built with Flutter & BLoC
 - [x] SearchBox
 - [ ] Pokedex AppBar
 - [ ] Pokemon Info - Evolution
+- [ ] Add support for Legendary/Mythical/Baby
 - [ ] Local Cache
 - [ ] Improve Architecture
 - [ ] Setup Actions
