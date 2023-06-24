@@ -18,7 +18,7 @@ class PokemonDetailsPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Text('Pokemon Details'),
+        title: const Text('Details'),
       ),
       body: BlocBuilder<PokemonDetailsCubit, PokemonDetails>(
         builder: (context, state) {

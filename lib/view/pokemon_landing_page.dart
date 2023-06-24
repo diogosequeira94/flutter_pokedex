@@ -59,7 +59,7 @@ class PokemonLandingPage extends StatelessWidget {
                                 builder: (_) => BlocProvider.value(
                                   value: context.read<PokemonDetailsCubit>(),
                                   child: PokemonDetailsPage(
-                                      pokemonName: pokeItem.name.capitalize(),
+                                      pokemonName: pokeItem.name,
                                       pokemonIndex: pokeItem.number),
                                 ),
                               ),
