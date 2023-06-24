@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/utils/extensions.dart';
+import 'package:pokedex/view/details_page/about/weaknesses_widget.dart';
 import 'package:pokemon/pokemon.dart';
 
 class AboutWidget extends StatelessWidget {
@@ -79,6 +80,8 @@ class AboutWidget extends StatelessWidget {
               )
             ],
           ),
+          const SizedBox(height: 15.0),
+          WeaknessesWidget(types: pokemon.types),
         ],
       ),
     );
