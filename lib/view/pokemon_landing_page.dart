@@ -93,7 +93,7 @@ class PokemonLandingPage extends StatelessWidget {
                 ElevatedButton(
                   child: const Padding(
                     padding: EdgeInsets.all(10.0),
-                    child: Text('Fetch Pokemon'),
+                    child: Text('Lets start!'),
                   ),
                   onPressed: () {
                     context.read<GenerationCubit>().fetchPokemonGeneration();

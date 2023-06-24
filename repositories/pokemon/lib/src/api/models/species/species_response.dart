@@ -2,6 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:pokemon/src/api/models/species/egg_groups.dart';
 import 'package:pokemon/src/api/models/species/flavor_text_entries.dart';
+import 'package:pokemon/src/api/models/species/habitat.dart';
 
 part 'species_response.g.dart';
 
@@ -11,6 +12,8 @@ class SpeciesResponse extends Equatable {
   final List<FlavorTextEntries> flavorTextEntries;
   @JsonKey(name: 'egg_groups')
   final List<EggGroups> eggGroups;
+  @JsonKey(name: 'habitat')
+  final Habitat habitat;
   @JsonKey(name: 'is_baby')
   final bool isBaby;
   @JsonKey(name: 'is_legendary')
@@ -21,6 +24,7 @@ class SpeciesResponse extends Equatable {
   const SpeciesResponse({
     required this.flavorTextEntries,
     required this.eggGroups,
+    required this.habitat,
     required this.isBaby,
     required this.isLegendary,
     required this.isMythical,
@@ -30,6 +34,7 @@ class SpeciesResponse extends Equatable {
   List<Object?> get props => [
         flavorTextEntries,
         eggGroups,
+        habitat,
         isBaby,
         isLegendary,
         isMythical,

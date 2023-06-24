@@ -38,17 +38,13 @@ class PokemonDetailsPage extends StatelessWidget {
                     pokemonIndex: pokemonIndex,
                   ),
                   TypePillsWidget(types: state.pokemon.types),
-                  const SizedBox(height: 20.0),
-                  HeightWeightWidget(
-                      height: pokemon.height, weight: pokemon.weight),
                   const SizedBox(height: 30.0),
                   PokeDescription(description: pokemon.description!),
-                  const SizedBox(height: 30.0),
-                  AbilitiesSection(abilities: state.pokemon.abilities),
-
-                  const SizedBox(height: 40.0),
-                  TabsSection(
-                    pokemon: state.pokemon,
+                  Padding(
+                    padding: const EdgeInsets.only(top: 60.0),
+                    child: TabsSection(
+                      pokemon: state.pokemon,
+                    ),
                   ),
                   //StatsWidget(statsList: state.pokemon.stats),
                 ],

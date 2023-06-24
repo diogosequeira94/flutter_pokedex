@@ -9,7 +9,7 @@ class MovesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      padding: const EdgeInsets.symmetric(vertical: 20.0),
       child: ListView(
         children: [
           Wrap(
@@ -24,7 +24,7 @@ class MovesWidget extends StatelessWidget {
                   elevation: 2.0,
                   child: Padding(
                     padding: const EdgeInsets.all(6.0),
-                    child: Text(move.move!.name!),
+                    child: Text(move.move!.name!.formatMove()),
                   ),
                 ),
             ],

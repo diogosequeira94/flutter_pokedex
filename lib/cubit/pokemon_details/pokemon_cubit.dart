@@ -19,10 +19,11 @@ class PokemonCubit extends Cubit<PokemonState> {
           await pokemonApiClient.getSpeciesInformation(name);
 
       final firstDescription = pokemonSpeciesInfo
-          .flavorTextEntries[0].flavorText.format();
+          .flavorTextEntries[0].flavorText.formatTrivia();
 
       final pokemon = pokemonBaseInfo.copyWith(
         description: firstDescription,
+        habitat: pokemonSpeciesInfo.habitat.name,
       );
 
       emit(PokemonInformationSuccess(pokemon: pokemon));

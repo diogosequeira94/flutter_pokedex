@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/utils/extensions.dart';
 import 'package:pokemon/pokemon.dart';
 
 class AboutWidget extends StatelessWidget {
-  final List<Ability> abilities;
-  const AboutWidget({Key? key, required this.abilities}) : super(key: key);
+  final Pokemon pokemon;
+  final List<Abilities> abilities;
+  const AboutWidget({Key? key, required this.abilities, required this.pokemon}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,25 +14,67 @@ class AboutWidget extends StatelessWidget {
       child: Column(
         children: [
           Row(
-            children: const [
-              Text('Height'),
-              SizedBox(width: 20.0),
-              Text('2.0 m')
+            children: [
+              const Text(
+                'Height',
+                style: TextStyle(color: Colors.white),
+              ),
+              const SizedBox(width: 20.0),
+              Text(
+                '${(pokemon.height! / 10).toString()} m',
+                style: const TextStyle(color: Colors.white),
+              )
             ],
           ),
-          SizedBox(height: 20.0),
-          Row(
-            children: const [Text('Weight'), SizedBox(width: 20.0), Text('26kg')],
-          ),
-          SizedBox(height: 20.0),
+          const SizedBox(height: 15.0),
           Row(
             children: [
-              const Text('Abilities'),
-              SizedBox(width: 20.0),
+              const Text(
+                'Weight',
+                style: TextStyle(color: Colors.white),
+              ),
+              const SizedBox(width: 20.0),
+              Text(
+                '${(pokemon.weight! * 0.1).roundToDouble().toString()} kg',
+                style: const TextStyle(color: Colors.white),
+              )
+            ],
+          ),
+          Row(
+            children: [
+              const Text(
+                'Habitat',
+                style: TextStyle(color: Colors.white),
+              ),
+              const SizedBox(width: 20.0),
+              Text(
+                pokemon.habitat ?? 'N/A',
+                style: const TextStyle(color: Colors.white),
+              )
+            ],
+          ),
+          const SizedBox(height: 15.0),
+          Row(
+            children: [
+              const Text(
+                'Abilities',
+                style: TextStyle(color: Colors.white),
+              ),
+              const SizedBox(width: 15.0),
               Row(
                 children: [
-                  for(final ability in abilities)
-                  Text(ability.name!),
+                  for (final ability in pokemon.abilities)
+                    Card(
+                      margin: const EdgeInsets.all(4.0),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(6.0),
+                      ),
+                      elevation: 2.0,
+                      child: Padding(
+                        padding: const EdgeInsets.all(6.0),
+                        child: Text(ability.ability!.name!.formatMove()),
+                      ),
+                    ),
                 ],
               )
             ],

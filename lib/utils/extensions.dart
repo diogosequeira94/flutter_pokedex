@@ -3,7 +3,11 @@ extension StringExtensions on String {
     return '${this[0].toUpperCase()}${substring(1)}';
   }
 
-  String format() {
+  String formatTrivia() {
     return replaceAll("\n", " ");
+  }
+
+  String formatMove() {
+    return replaceAll("-", " ");
   }
 }

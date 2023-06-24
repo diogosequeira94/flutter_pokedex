@@ -13,7 +13,7 @@ class TabsSection extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 24.0, horizontal: 12.0),
       decoration: const BoxDecoration(
-        color: Colors.red,
+        color: Colors.black87,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(22.0),
           topRight: Radius.circular(22.0),
@@ -22,7 +22,7 @@ class TabsSection extends StatelessWidget {
       child: DefaultTabController(
         length: 4,
         child: SizedBox(
-          height: 400.0,
+          height: 300.0,
           child: Column(
             children: <Widget>[
               const TabBar(
@@ -46,7 +46,7 @@ class TabsSection extends StatelessWidget {
               Expanded(
                 child: TabBarView(
                   children: <Widget>[
-                    AboutWidget(),
+                    AboutWidget(pokemon: pokemon, abilities: pokemon.abilities),
                     StatsWidget(statsList: pokemon.stats),
                     StatsWidget(statsList: pokemon.stats),
                     MovesWidget(moves: pokemon.moves),
