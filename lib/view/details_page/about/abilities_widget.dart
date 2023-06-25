@@ -9,7 +9,6 @@ class AbilitiesWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(abilities.length);
     return Row(
       children: [
         const Text(

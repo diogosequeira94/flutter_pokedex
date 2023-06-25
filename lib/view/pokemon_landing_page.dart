@@ -66,6 +66,9 @@ class PokemonLandingPage extends StatelessWidget {
                             );
                           },
                           child: Card(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12.0),
+                            ),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
