@@ -6,6 +6,10 @@
 
 Pokédex app built with Flutter & BLoC
 
+## Demo
+
+![demo](https://github.com/diogosequeira94/flutter-pokedex/assets/17165238/77053c97-6790-4f08-8eca-512fc3242776)
+
 ## Todos
 
 - [x] Home
