@@ -57,7 +57,7 @@ void main() {
       expect(find.byKey(pokedexAssetKey), findsOneWidget);
       expect(find.byKey(pokeSearchKey), findsOneWidget);
       expect(find.byKey(pokemonGridKey), findsOneWidget);
-      expect(find.byKey(pokemonItemCardKey), findsOneWidget);
+      expect(find.byKey(pokemonItemCardKey), findsNWidgets(6));
     });
 
     testWidgets('should render circular progress bar when state is [FetchFirstGenInProgress]', (tester) async {
