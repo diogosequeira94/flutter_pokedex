@@ -16,6 +16,5 @@ class PokeTypes extends Equatable {
   @override
   List<Object?> get props => [type];
 
-  factory PokeTypes.fromJson(Map<String, dynamic> json) =>
-      _$PokeTypesFromJson(json);
+  factory PokeTypes.fromJson(Map<String, dynamic> json) => _$PokeTypesFromJson(json);
 }

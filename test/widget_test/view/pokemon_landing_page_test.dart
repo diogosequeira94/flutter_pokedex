@@ -8,11 +8,9 @@ import 'package:pokedex/view/pokemon_landing_page.dart';
 
 import '../../mocks/unit_test_mocks.dart';
 
-class MockGenerationCubit extends MockCubit<GenerationState>
-    implements GenerationCubit {}
+class MockGenerationCubit extends MockCubit<GenerationState> implements GenerationCubit {}
 
-class MockPokemonDetailsCubit extends MockCubit<PokemonDetailsState>
-    implements PokemonDetailsCubit {}
+class MockPokemonDetailsCubit extends MockCubit<PokemonDetailsState> implements PokemonDetailsCubit {}
 
 void main() {
   late GenerationCubit generationCubit;
@@ -42,8 +40,7 @@ void main() {
   });
 
   group('PokemonLandingPage', () {
-    testWidgets('should render when state is [GenerationInitial]',
-        (tester) async {
+    testWidgets('should render when state is [GenerationInitial]', (tester) async {
       when(() => generationCubit.state).thenReturn(GenerationInitial());
       await tester.pumpWidget(widgetUnderTest);
       await tester.pump();
@@ -51,11 +48,9 @@ void main() {
       expect(find.byKey(startWidgetKey), findsOneWidget);
     });
 
-    testWidgets(
-        'should render banner, searchBox and grid with items when state is [FetchFirstGenSuccess]',
+    testWidgets('should render banner, searchBox and grid with items when state is [FetchFirstGenSuccess]',
         (tester) async {
-      when(() => generationCubit.state)
-          .thenReturn(FetchFirstGenSuccess(pokemonList: mockPokemonList));
+      when(() => generationCubit.state).thenReturn(FetchFirstGenSuccess(pokemonList: mockPokemonList));
       await tester.pumpWidget(widgetUnderTest);
       await tester.pump();
 
@@ -65,9 +60,7 @@ void main() {
       expect(find.byKey(pokemonItemCardKey), findsOneWidget);
     });
 
-    testWidgets(
-        'should render circular progress bar when state is [FetchFirstGenInProgress]',
-        (tester) async {
+    testWidgets('should render circular progress bar when state is [FetchFirstGenInProgress]', (tester) async {
       when(() => generationCubit.state).thenReturn(FetchFirstGenInProgress());
       await tester.pumpWidget(widgetUnderTest);
       await tester.pump();
@@ -75,12 +68,9 @@ void main() {
       expect(find.byType(CircularProgressIndicator), findsOneWidget);
     });
 
-    testWidgets(
-        'should render widget with text error message when state is [FetchFirstGenFailure]',
-        (tester) async {
+    testWidgets('should render widget with text error message when state is [FetchFirstGenFailure]', (tester) async {
       const mockErrorMessage = 'Generic API error';
-      when(() => generationCubit.state).thenReturn(
-          const FetchFirstGenFailure(errorMessage: mockErrorMessage));
+      when(() => generationCubit.state).thenReturn(const FetchFirstGenFailure(errorMessage: mockErrorMessage));
       await tester.pumpWidget(widgetUnderTest);
       await tester.pump();
       const textWidgetKey = Key('landingPage_errorMessage');

@@ -15,8 +15,5 @@ class FlavorTextEntries extends Equatable {
   @override
   List<Object?> get props => [flavorText];
 
-  factory FlavorTextEntries.fromJson(Map<String, dynamic> json) =>
-      _$FlavorTextEntriesFromJson(json);
+  factory FlavorTextEntries.fromJson(Map<String, dynamic> json) => _$FlavorTextEntriesFromJson(json);
 }
-
-

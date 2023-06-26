@@ -14,11 +14,9 @@ class PokemonDetailsCubit extends Cubit<PokemonDetailsState> {
     try {
       final pokemonBaseInfo = await pokemonRepository.getPokemonByName(name: name);
 
-      final pokemonSpeciesInfo =
-          await pokemonRepository.getSpeciesInformation(name: name);
+      final pokemonSpeciesInfo = await pokemonRepository.getSpeciesInformation(name: name);
 
-      final firstDescription =
-          pokemonSpeciesInfo.flavorTextEntries[0].flavorText.formatTrivia();
+      final firstDescription = pokemonSpeciesInfo.flavorTextEntries[0].flavorText.formatTrivia();
 
       final pokemon = pokemonBaseInfo.copyWith(
         description: firstDescription,

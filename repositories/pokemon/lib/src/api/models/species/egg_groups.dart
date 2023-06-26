@@ -15,8 +15,5 @@ class EggGroups extends Equatable {
   @override
   List<Object?> get props => [name];
 
-  factory EggGroups.fromJson(Map<String, dynamic> json) =>
-      _$EggGroupsFromJson(json);
+  factory EggGroups.fromJson(Map<String, dynamic> json) => _$EggGroupsFromJson(json);
 }
-
-

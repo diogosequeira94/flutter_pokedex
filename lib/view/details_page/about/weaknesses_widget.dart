@@ -29,7 +29,7 @@ class WeaknessesWidget extends StatelessWidget {
               shrinkWrap: true,
               itemCount: weaknesses.length,
               itemBuilder: (BuildContext context, int i) {
-                return  Card(
+                return Card(
                   color: _getPillColor(weaknesses[i]),
                   margin: const EdgeInsets.all(4.0),
                   shape: RoundedRectangleBorder(
@@ -38,7 +38,10 @@ class WeaknessesWidget extends StatelessWidget {
                   elevation: 2.0,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(vertical: 6.0, horizontal: 8.0),
-                    child: Text(weaknesses[i], style: const TextStyle(color: Colors.white),),
+                    child: Text(
+                      weaknesses[i],
+                      style: const TextStyle(color: Colors.white),
+                    ),
                   ),
                 );
               },
@@ -53,16 +56,15 @@ class WeaknessesWidget extends StatelessWidget {
     List<String> weaknesses = [];
 
     for (int i = 0; i < types.length; i++) {
-      List<String> tempWeaknesses =
-          WeaknessesUtils.getWeaknesses(types[i].type!.name!.capitalize());
+      List<String> tempWeaknesses = WeaknessesUtils.getWeaknesses(types[i].type!.name!.capitalize());
       weaknesses.addAll(tempWeaknesses);
     }
 
     return weaknesses.toSet().toList();
   }
 
-  Color _getPillColor(String typeName){
-    switch(typeName){
+  Color _getPillColor(String typeName) {
+    switch (typeName) {
       case 'Grass':
         return Colors.green;
       case 'Water':

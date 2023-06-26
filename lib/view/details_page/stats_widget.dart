@@ -46,22 +46,18 @@ class StatsWidget extends StatelessWidget {
                           ),
                           Container(
                             height: maxContainerHeight,
-                            width: _calculateStatFillWidth(
-                                maxContainerWidth, stats.value!),
+                            width: _calculateStatFillWidth(maxContainerWidth, stats.value!),
                             decoration: BoxDecoration(
                               color: _getStatColor(stats.stat!.name!),
                               borderRadius: const BorderRadius.all(
                                 Radius.circular(statsPillRadius),
                               ),
                             ),
-                            padding: const EdgeInsets.symmetric(
-                                vertical: 4.0, horizontal: 12.0),
+                            padding: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 12.0),
                             child: Center(
                               child: Text(
                                 '${stats.value.toString()}/150',
-                                style: const TextStyle(
-                                    color: Colors.transparent,
-                                    fontSize: 11.5),
+                                style: const TextStyle(color: Colors.transparent, fontSize: 11.5),
                               ),
                             ),
                           ),
@@ -74,8 +70,7 @@ class StatsWidget extends StatelessWidget {
                                 Radius.circular(statsPillRadius),
                               ),
                               border: Border.all(
-                                color: Colors
-                                    .white, //                   <--- border color
+                                color: Colors.white, //                   <--- border color
                                 width: 1.0,
                               ),
                             ),
@@ -89,8 +84,7 @@ class StatsWidget extends StatelessWidget {
                       Center(
                         child: Text(
                           '${stats.value.toString()}/150',
-                          style: const TextStyle(
-                              color: Colors.white, fontSize: 13.0),
+                          style: const TextStyle(color: Colors.white, fontSize: 13.0),
                         ),
                       ),
                     ],
@@ -104,9 +98,7 @@ class StatsWidget extends StatelessWidget {
   }
 
   double _calculateStatFillWidth(double maxWidth, int value) {
-    return (maxWidth / 1.5) * (value / 100) > maxWidth
-        ? maxWidth
-        : (maxWidth / 1.5) * (value / 100);
+    return (maxWidth / 1.5) * (value / 100) > maxWidth ? maxWidth : (maxWidth / 1.5) * (value / 100);
   }
 
   String _getStatTag(String statName) {

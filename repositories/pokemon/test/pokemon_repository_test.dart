@@ -16,10 +16,8 @@ void main() {
   });
 
   group('PokemonRepository', () {
-    test('getFirstPokemonGen is called and returns PokemonGenerationResponse',
-        () async {
-      const pokemonGenerationResponse =
-          PokemonGenerationResponse(count: 151, pokemonItems: []);
+    test('getFirstPokemonGen is called and returns PokemonGenerationResponse', () async {
+      const pokemonGenerationResponse = PokemonGenerationResponse(count: 151, pokemonItems: []);
       when(() => pokemonApiClient.getFirstPokemonGen()).thenAnswer(
         (_) => Future.value(pokemonGenerationResponse),
       );
@@ -41,14 +39,12 @@ void main() {
         (_) => Future.value(pokemon),
       );
 
-      final response =
-          await pokemonRepository.getPokemonByName(name: 'Pikachu');
+      final response = await pokemonRepository.getPokemonByName(name: 'Pikachu');
 
       expect(response, pokemon);
     });
 
-    test('getSpeciesInformation is called and returns SpeciesResponse',
-        () async {
+    test('getSpeciesInformation is called and returns SpeciesResponse', () async {
       const speciesResponse = SpeciesResponse(
         eggGroups: [],
         flavorTextEntries: [],
@@ -57,13 +53,11 @@ void main() {
         isLegendary: false,
         isMythical: false,
       );
-      when(() => pokemonApiClient.getSpeciesInformation('Charmander'))
-          .thenAnswer(
+      when(() => pokemonApiClient.getSpeciesInformation('Charmander')).thenAnswer(
         (_) => Future.value(speciesResponse),
       );
 
-      final response =
-          await pokemonRepository.getSpeciesInformation(name: 'Charmander');
+      final response = await pokemonRepository.getSpeciesInformation(name: 'Charmander');
 
       expect(response, speciesResponse);
     });

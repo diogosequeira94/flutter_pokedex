@@ -27,10 +27,8 @@ void main() {
       'should emit FetchFirstGenInProgress then FetchFirstGenSuccess',
       build: () => generationCubit,
       act: (cubit) async {
-        const generationResponse =
-            PokemonGenerationResponse(count: 151, pokemonItems: []);
-        when(() => pokemonRepository.getFirstPokemonGen())
-            .thenAnswer((_) => Future.value(generationResponse));
+        const generationResponse = PokemonGenerationResponse(count: 151, pokemonItems: []);
+        when(() => pokemonRepository.getFirstPokemonGen()).thenAnswer((_) => Future.value(generationResponse));
         await cubit.fetchPokemonGeneration();
       },
       expect: () => [
@@ -43,8 +41,7 @@ void main() {
       'should emit FetchFirstGenFailure when repository throws exception',
       build: () => generationCubit,
       act: (cubit) async {
-        when(() => pokemonRepository.getFirstPokemonGen())
-            .thenThrow((_) => Exception());
+        when(() => pokemonRepository.getFirstPokemonGen()).thenThrow((_) => Exception());
         await cubit.fetchPokemonGeneration();
       },
       expect: () => [

@@ -15,8 +15,5 @@ class Habitat extends Equatable {
   @override
   List<Object?> get props => [name];
 
-  factory Habitat.fromJson(Map<String, dynamic> json) =>
-      _$HabitatFromJson(json);
+  factory Habitat.fromJson(Map<String, dynamic> json) => _$HabitatFromJson(json);
 }
-
-

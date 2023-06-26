@@ -9,10 +9,8 @@ import 'pokemon_endpoints.dart';
 class PokemonApiClient {
   Future<PokemonGenerationResponse> getFirstPokemonGen() async {
     try {
-      final response =
-          await http.get(Uri.parse(PokemonEndpoints.getFirstPokemonGen()));
-      return PokemonGenerationResponse.fromJson(
-          json.decode(response.body) as Map<String, dynamic>);
+      final response = await http.get(Uri.parse(PokemonEndpoints.getFirstPokemonGen()));
+      return PokemonGenerationResponse.fromJson(json.decode(response.body) as Map<String, dynamic>);
     } on Object catch (e) {
       print('Exception: $e');
       throw Exception();
@@ -21,10 +19,8 @@ class PokemonApiClient {
 
   Future<Pokemon> getPokemonByName(String name) async {
     try {
-      final response =
-          await http.get(Uri.parse(PokemonEndpoints.getPokemonByName(name)));
-      return Pokemon.fromJson(
-          json.decode(response.body) as Map<String, dynamic>);
+      final response = await http.get(Uri.parse(PokemonEndpoints.getPokemonByName(name)));
+      return Pokemon.fromJson(json.decode(response.body) as Map<String, dynamic>);
     } on Object catch (e) {
       print('Exception: $e');
       throw Exception();
@@ -33,10 +29,8 @@ class PokemonApiClient {
 
   Future<SpeciesResponse> getSpeciesInformation(String name) async {
     try {
-      final response =
-      await http.get(Uri.parse(PokemonEndpoints.getSpeciesInformation(name)));
-      return SpeciesResponse.fromJson(
-          json.decode(response.body) as Map<String, dynamic>);
+      final response = await http.get(Uri.parse(PokemonEndpoints.getSpeciesInformation(name)));
+      return SpeciesResponse.fromJson(json.decode(response.body) as Map<String, dynamic>);
     } on Object catch (e) {
       print('Exception: $e');
       throw Exception();

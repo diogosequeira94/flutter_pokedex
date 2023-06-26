@@ -46,8 +46,7 @@ class Pokemon extends Equatable {
         stats,
       ];
 
-  factory Pokemon.fromJson(Map<String, dynamic> json) =>
-      _$PokemonFromJson(json);
+  factory Pokemon.fromJson(Map<String, dynamic> json) => _$PokemonFromJson(json);
 
   Pokemon copyWith({
     int? height,

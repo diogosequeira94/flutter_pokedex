@@ -43,8 +43,7 @@ class PokemonLandingPage extends StatelessWidget {
                       key: const Key('landingPage_pokemonGrid'),
                       physics: const ScrollPhysics(),
                       shrinkWrap: true,
-                      gridDelegate:
-                          const SliverGridDelegateWithMaxCrossAxisExtent(
+                      gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                         maxCrossAxisExtent: 200,
                         childAspectRatio: 3 / 2,
                         crossAxisSpacing: 10,
@@ -55,17 +54,13 @@ class PokemonLandingPage extends StatelessWidget {
                         final pokeItem = state.pokemonList[index];
                         return GestureDetector(
                           onTap: () {
-                            context
-                                .read<PokemonDetailsCubit>()
-                                .fetchPokemonByName(pokeItem.name);
+                            context.read<PokemonDetailsCubit>().fetchPokemonByName(pokeItem.name);
                             Navigator.push(
                               context,
                               MaterialPageRoute(
                                 builder: (_) => BlocProvider.value(
                                   value: context.read<PokemonDetailsCubit>(),
-                                  child: PokemonDetailsPage(
-                                      pokemonName: pokeItem.name,
-                                      pokemonIndex: pokeItem.number),
+                                  child: PokemonDetailsPage(pokemonName: pokeItem.name, pokemonIndex: pokeItem.number),
                                 ),
                               ),
                             );

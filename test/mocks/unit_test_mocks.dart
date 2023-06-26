@@ -21,9 +21,7 @@ const mockPokemon = Pokemon(
 );
 
 const mockSpeciesResponse = SpeciesResponse(
-  flavorTextEntries: [
-    FlavorTextEntries(flavorText: 'This pokemon lives in water')
-  ],
+  flavorTextEntries: [FlavorTextEntries(flavorText: 'This pokemon lives in water')],
   eggGroups: [EggGroups(name: 'Carp')],
   habitat: Habitat(name: 'Water'),
   isBaby: false,

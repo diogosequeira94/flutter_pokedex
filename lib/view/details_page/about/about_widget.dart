@@ -59,8 +59,7 @@ class _AboutItemWidget extends StatelessWidget {
       children: [
         Text(
           title,
-          style: const TextStyle(
-              color: Colors.white, fontSize: Constants.aboutEntryFontSize),
+          style: const TextStyle(color: Colors.white, fontSize: Constants.aboutEntryFontSize),
         ),
         const SizedBox(width: 20.0),
         Text(

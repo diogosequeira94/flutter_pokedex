@@ -38,6 +38,5 @@ class SpeciesResponse extends Equatable {
         isMythical,
       ];
 
-  factory SpeciesResponse.fromJson(Map<String, dynamic> json) =>
-      _$SpeciesResponseFromJson(json);
+  factory SpeciesResponse.fromJson(Map<String, dynamic> json) => _$SpeciesResponseFromJson(json);
 }

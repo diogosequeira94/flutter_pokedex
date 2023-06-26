@@ -28,8 +28,7 @@ void main() {
       'should emit PokemonInformationInProgress then PokemonInformationSuccess',
       build: () => pokemonDetailsCubit,
       act: (cubit) async {
-        when(() => pokemonRepository.getPokemonByName(name: 'Pickachu'))
-            .thenAnswer((_) => Future.value(mockPokemon));
+        when(() => pokemonRepository.getPokemonByName(name: 'Pickachu')).thenAnswer((_) => Future.value(mockPokemon));
         when(() => pokemonRepository.getSpeciesInformation(name: 'Pickachu'))
             .thenAnswer((_) => Future.value(mockSpeciesResponse));
 
@@ -50,8 +49,7 @@ void main() {
       'should emit PokemonInformationFailure when repository throws exception',
       build: () => pokemonDetailsCubit,
       act: (cubit) async {
-        when(() => pokemonRepository.getPokemonByName(name: 'Pickachu'))
-            .thenThrow((_) => Exception());
+        when(() => pokemonRepository.getPokemonByName(name: 'Pickachu')).thenThrow((_) => Exception());
         await cubit.fetchPokemonByName('Pickachu');
       },
       expect: () => [

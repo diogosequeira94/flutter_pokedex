@@ -19,6 +19,5 @@ class PokemonGenerationResponse extends Equatable {
   @override
   List<Object?> get props => [count, pokemonItems];
 
-  factory PokemonGenerationResponse.fromJson(Map<String, dynamic> json) =>
-      _$PokemonGenerationResponseFromJson(json);
+  factory PokemonGenerationResponse.fromJson(Map<String, dynamic> json) => _$PokemonGenerationResponseFromJson(json);
 }

@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 /// Deprecated widget for HeightWeight
 class HeightWeightWidget extends StatelessWidget {
   final int? height, weight;
-  const HeightWeightWidget(
-      {Key? key, required this.height, required this.weight})
-      : super(key: key);
+  const HeightWeightWidget({Key? key, required this.height, required this.weight}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

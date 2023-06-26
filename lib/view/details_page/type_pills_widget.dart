@@ -22,8 +22,7 @@ class TypePillsWidget extends StatelessWidget {
                   Radius.circular(20.0),
                 ),
               ),
-              padding:
-                  const EdgeInsets.symmetric(vertical: 4.0, horizontal: 12.0),
+              padding: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 12.0),
               child: Center(
                   child: Text(
                 type.type!.name!.capitalize(),
@@ -35,8 +34,8 @@ class TypePillsWidget extends StatelessWidget {
     );
   }
 
-  Color _getPillColor(String typeName){
-    switch(typeName){
+  Color _getPillColor(String typeName) {
+    switch (typeName) {
       case 'grass':
         return Colors.green;
       case 'water':

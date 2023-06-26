@@ -11,7 +11,6 @@ class Abilities extends Equatable {
   @JsonKey(name: 'is_hidden')
   final bool? isHidden;
 
-
   const Abilities({
     required this.ability,
     required this.isHidden,
