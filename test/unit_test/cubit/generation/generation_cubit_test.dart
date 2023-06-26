@@ -17,7 +17,7 @@ void main() {
   });
 
   group('Emit States', () {
-    test('initial state should be [CalendarInitial]', () {
+    test('initial state should be [GenerationInitial]', () {
       expect(generationCubit.state, equals(GenerationInitial()));
     });
   });
