@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pokedex/cubit/generation/generation_cubit.dart';
-import 'package:pokedex/cubit/pokemon_details/pokemon_details_cubit.dart';
-import 'package:pokedex/utils/constants.dart';
-import 'package:pokedex/utils/extensions.dart';
+import 'package:pokedex/cubit/cubit.dart';
+import 'package:pokedex/utils/utils.dart';
 import 'package:pokedex/view/landing_page/poke_searchbox.dart';
 import 'package:pokedex/view/pokemon_details_page.dart';
 
@@ -17,11 +15,13 @@ class PokemonLandingPage extends StatelessWidget {
         builder: (context, state) {
           if (state is FetchFirstGenFailure) {
             return Center(
+              key: const Key('landingPage_errorMessage'),
               child: Text(state.errorMessage),
             );
           }
           if (state is FetchFirstGenInProgress) {
             return const Center(
+              key: Key('landingPage_fetchInProgress'),
               child: CircularProgressIndicator(),
             );
           } else if (state is FetchFirstGenSuccess) {
@@ -29,13 +29,17 @@ class PokemonLandingPage extends StatelessWidget {
               child: Column(
                 children: [
                   Padding(
+                    key: const Key('landingPage_pokedexAsset'),
                     padding: const EdgeInsets.only(top: 60.0),
                     child: Image.asset(Constants.pokedexAssetPath),
                   ),
-                  const PokeSearchBox(),
+                  const PokeSearchBox(
+                    key: Key('landingPage_pokeSearchBox'),
+                  ),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 10.0),
                     child: GridView.builder(
+                      key: const Key('landingPage_pokemonGrid'),
                       physics: const ScrollPhysics(),
                       shrinkWrap: true,
                       gridDelegate:
@@ -66,6 +70,7 @@ class PokemonLandingPage extends StatelessWidget {
                             );
                           },
                           child: Card(
+                            key: const Key('landingPage_pokemonItemCard'),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12.0),
                             ),
@@ -93,6 +98,7 @@ class PokemonLandingPage extends StatelessWidget {
             );
           }
           return Center(
+            key: const Key('landingPage_startWidget'),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

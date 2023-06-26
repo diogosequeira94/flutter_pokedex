@@ -7,6 +7,9 @@ abstract class GenerationState extends Equatable {
 class GenerationInitial extends GenerationState {
   @override
   List<Object> get props => [];
+
+  @override
+  bool get stringify => false;
 }
 
 class FetchFirstGenInProgress extends GenerationState {

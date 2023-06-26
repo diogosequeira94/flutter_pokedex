@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:pokedex/cubit/generation/model/pokemon_basic_item.dart';
 import 'package:pokemon/pokemon.dart';
 
@@ -11,7 +12,10 @@ class GenerationCubit extends Cubit<GenerationState> {
         super(GenerationInitial());
 
   final PokemonRepository _pokemonRepository;
-  final List<PokemonBasicItem> _pokemonList = [];
+
+  @visibleForTesting
+  final List<PokemonBasicItem> pokemonList = [];
+
   int indexCounter = 1;
 
   Future<void> fetchPokemonGeneration() async {
@@ -25,19 +29,19 @@ class GenerationCubit extends Cubit<GenerationState> {
           name: pokemonItem.name,
           number: indexCounter,
         );
-        _pokemonList.add(pokemon);
+        pokemonList.add(pokemon);
         indexCounter++;
       }
       indexCounter = 1;
 
-      emit(FetchFirstGenSuccess(pokemonList: _pokemonList));
+      emit(FetchFirstGenSuccess(pokemonList: pokemonList));
     } on Object catch (e) {
       emit(FetchFirstGenFailure(errorMessage: e.toString()));
     }
   }
 
   void searchBoxChanged(String query) async {
-    var tempList = _pokemonList
+    var tempList = pokemonList
         .where((pokemon) =>
             pokemon.name.toLowerCase().contains(query.toLowerCase()))
         .toList();
