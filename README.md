@@ -23,6 +23,9 @@ Pokédex app built with Flutter & BLoC
 - [x] Pokemon Info / Species - About
 - [x] Details Screen Tabs
 - [x] SearchBox
+- [x] Repository Unit testing
+- [x] Cubit Unit testing
+- [ ] Widget testing
 - [ ] Pokedex AppBar
 - [ ] Pokemon Info - Evolution
 - [ ] Add support for Legendary/Mythical/Baby
@@ -30,6 +33,3 @@ Pokédex app built with Flutter & BLoC
 - [ ] Improve Architecture
 - [ ] Setup Actions
 - [ ] Themes Support
-- [x] Repository Unit testing
-- [x] Cubit Unit testing
-- [ ] Widget testing
