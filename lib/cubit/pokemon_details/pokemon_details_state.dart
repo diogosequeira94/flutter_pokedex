@@ -1,27 +1,27 @@
 part of 'pokemon_details_cubit.dart';
 
-abstract class PokemonDetails extends Equatable {
-  const PokemonDetails();
+abstract class PokemonDetailsState extends Equatable {
+  const PokemonDetailsState();
 }
 
-class PokemonInitial extends PokemonDetails {
+class PokemonInitial extends PokemonDetailsState {
   @override
   List<Object> get props => [];
 }
 
-class PokemonInformationInProgress extends PokemonDetails {
+class PokemonInformationInProgress extends PokemonDetailsState {
   @override
   List<Object> get props => [];
 }
 
-class PokemonInformationSuccess extends PokemonDetails {
+class PokemonInformationSuccess extends PokemonDetailsState {
   final Pokemon pokemon;
   const PokemonInformationSuccess({required this.pokemon});
   @override
   List<Object> get props => [pokemon];
 }
 
-class PokemonInformationFailure extends PokemonDetails {
+class PokemonInformationFailure extends PokemonDetailsState {
   final String errorMessage;
   const PokemonInformationFailure({required this.errorMessage});
   @override

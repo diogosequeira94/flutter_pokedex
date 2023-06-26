@@ -20,7 +20,7 @@ class PokemonDetailsPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Details'),
       ),
-      body: BlocBuilder<PokemonDetailsCubit, PokemonDetails>(
+      body: BlocBuilder<PokemonDetailsCubit, PokemonDetailsState>(
         builder: (context, state) {
           if (state is PokemonInformationInProgress) {
             return const Center(

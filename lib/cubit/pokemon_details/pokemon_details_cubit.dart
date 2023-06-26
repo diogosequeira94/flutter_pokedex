@@ -5,7 +5,7 @@ import 'package:pokemon/pokemon.dart';
 
 part 'pokemon_details_state.dart';
 
-class PokemonDetailsCubit extends Cubit<PokemonDetails> {
+class PokemonDetailsCubit extends Cubit<PokemonDetailsState> {
   final PokemonRepository pokemonRepository;
   PokemonDetailsCubit(this.pokemonRepository) : super(PokemonInitial());
 

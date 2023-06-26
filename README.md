@@ -30,4 +30,6 @@ Pokédex app built with Flutter & BLoC
 - [ ] Improve Architecture
 - [ ] Setup Actions
 - [ ] Themes Support
-- [ ] Repository Unit testing
+- [x] Repository Unit testing
+- [x] Cubit Unit testing
+- [ ] Widget testing

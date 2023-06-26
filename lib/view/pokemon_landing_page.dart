@@ -15,13 +15,14 @@ class PokemonLandingPage extends StatelessWidget {
         builder: (context, state) {
           if (state is FetchFirstGenFailure) {
             return Center(
-              key: const Key('landingPage_errorMessage'),
-              child: Text(state.errorMessage),
+              child: Text(
+                state.errorMessage,
+                key: const Key('landingPage_errorMessage'),
+              ),
             );
           }
           if (state is FetchFirstGenInProgress) {
             return const Center(
-              key: Key('landingPage_fetchInProgress'),
               child: CircularProgressIndicator(),
             );
           } else if (state is FetchFirstGenSuccess) {
