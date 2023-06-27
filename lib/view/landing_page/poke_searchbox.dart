@@ -38,11 +38,13 @@ class _PokeSearchBoxState extends State<PokeSearchBox> {
         children: [
           const Text(
             'Which Pokémon are you looking for?',
+            key: Key('pokeSearchBox_title'),
             style: TextStyle(fontSize: 19.0),
           ),
           Padding(
             padding: const EdgeInsets.only(top: 20.0),
             child: TextField(
+                key: const Key('pokeSearchBox_textField'),
                 decoration: InputDecoration(
                   prefixIcon: const Icon(
                     Icons.search,
