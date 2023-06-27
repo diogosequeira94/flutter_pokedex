@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:pokemon/src/api/models/species/species.dart';
-
 import 'api/api/pokemon_api_client.dart';
 import 'api/models/models.dart';
 
-class PokemonRepository {
+abstract class IPokemonRepository {
+  Future<PokemonGenerationResponse> getFirstPokemonGen();
+  Future<Pokemon> getPokemonByName({required String name});
+  Future<SpeciesResponse> getSpeciesInformation({required String name});
+}
+
+class PokemonRepository extends IPokemonRepository {
   static PokemonApiClient _pokemonApiClient = PokemonApiClient();
 
   static final _instance = PokemonRepository._internal();
@@ -24,14 +28,17 @@ class PokemonRepository {
     _pokemonApiClient = pokemonApiClient;
   }
 
+  @override
   Future<PokemonGenerationResponse> getFirstPokemonGen() async {
     return await _pokemonApiClient.getFirstPokemonGen();
   }
 
+  @override
   Future<Pokemon> getPokemonByName({required String name}) async {
     return await _pokemonApiClient.getPokemonByName(name);
   }
 
+  @override
   Future<SpeciesResponse> getSpeciesInformation({required String name}) async {
     return await _pokemonApiClient.getSpeciesInformation(name);
   }
