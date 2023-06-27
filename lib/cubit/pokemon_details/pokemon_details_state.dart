@@ -4,26 +4,26 @@ abstract class PokemonDetailsState extends Equatable {
   const PokemonDetailsState();
 }
 
-class PokemonInitial extends PokemonDetailsState {
+class PokemonDetailsInitial extends PokemonDetailsState {
   @override
   List<Object> get props => [];
 }
 
-class PokemonInformationInProgress extends PokemonDetailsState {
+class PokemonDetailsInProgress extends PokemonDetailsState {
   @override
   List<Object> get props => [];
 }
 
-class PokemonInformationSuccess extends PokemonDetailsState {
+class PokemonDetailsSuccess extends PokemonDetailsState {
   final Pokemon pokemon;
-  const PokemonInformationSuccess({required this.pokemon});
+  const PokemonDetailsSuccess({required this.pokemon});
   @override
   List<Object> get props => [pokemon];
 }
 
-class PokemonInformationFailure extends PokemonDetailsState {
+class PokemonDetailsFailure extends PokemonDetailsState {
   final String errorMessage;
-  const PokemonInformationFailure({required this.errorMessage});
+  const PokemonDetailsFailure({required this.errorMessage});
   @override
   List<Object> get props => [errorMessage];
 }

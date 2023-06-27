@@ -12,8 +12,10 @@ class PokemonCardItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      key: const Key('landingPage_pokemonItemCard'),
       onTap: () {
         context.read<PokemonDetailsCubit>().fetchPokemonByName(pokeItem.name);
+        print('TAPPED');
         Navigator.push(
           context,
           MaterialPageRoute(
@@ -25,7 +27,6 @@ class PokemonCardItem extends StatelessWidget {
         );
       },
       child: Card(
-        key: const Key('landingPage_pokemonItemCard'),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12.0),
         ),
@@ -33,14 +34,21 @@ class PokemonCardItem extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
+              key: const Key('pokeCard_sprite'),
               'assets/gen1/${pokeItem.name}.jpeg',
               fit: BoxFit.cover,
               width: 80.0,
               height: 80,
             ),
             const SizedBox(height: 4.0),
-            Text(pokeItem.name.capitalize()),
-            Text('#${pokeItem.number}'),
+            Text(
+              pokeItem.name.capitalize(),
+              key: const Key('pokeCard_name'),
+            ),
+            Text(
+              '#${pokeItem.number}',
+              key: const Key('pokeCard_number'),
+            ),
           ],
         ),
       ),

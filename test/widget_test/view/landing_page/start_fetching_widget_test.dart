@@ -35,8 +35,7 @@ void main() {
       expect(find.byKey(startWidgetButtonKey), findsOneWidget);
     });
 
-    testWidgets('should add fetchPokemonGeneration when button is tapped',
-        (tester) async {
+    testWidgets('should add fetchPokemonGeneration when button is tapped', (tester) async {
       when(() => generationCubit.state).thenReturn(GenerationInitial());
       await tester.pumpWidget(widgetUnderTest);
       await tester.pump();

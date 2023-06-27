@@ -8,14 +8,14 @@ void main() {
     group('PokemonInformationInProgress', () {
       test('props', () {
         expect(
-          PokemonInformationInProgress().props,
+          PokemonDetailsInProgress().props,
           [],
         );
       });
 
       test('equatable', () {
-        final state1 = PokemonInformationInProgress();
-        final state2 = PokemonInformationInProgress();
+        final state1 = PokemonDetailsInProgress();
+        final state2 = PokemonDetailsInProgress();
 
         expect(
           state1,
@@ -27,7 +27,7 @@ void main() {
     group('PokemonInformationSuccess', () {
       test('props', () {
         expect(
-          const PokemonInformationSuccess(pokemon: mockPokemon).props,
+          const PokemonDetailsSuccess(pokemon: mockPokemon).props,
           [mockPokemon],
         );
       });

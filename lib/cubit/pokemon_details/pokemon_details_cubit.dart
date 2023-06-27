@@ -7,10 +7,10 @@ part 'pokemon_details_state.dart';
 
 class PokemonDetailsCubit extends Cubit<PokemonDetailsState> {
   final PokemonRepository pokemonRepository;
-  PokemonDetailsCubit(this.pokemonRepository) : super(PokemonInitial());
+  PokemonDetailsCubit(this.pokemonRepository) : super(PokemonDetailsInitial());
 
   Future<void> fetchPokemonByName(String name) async {
-    emit(PokemonInformationInProgress());
+    emit(PokemonDetailsInProgress());
     try {
       final pokemonBaseInfo = await pokemonRepository.getPokemonByName(name: name);
 
@@ -23,9 +23,9 @@ class PokemonDetailsCubit extends Cubit<PokemonDetailsState> {
         habitat: pokemonSpeciesInfo.habitat.name.capitalize(),
       );
 
-      emit(PokemonInformationSuccess(pokemon: pokemon));
+      emit(PokemonDetailsSuccess(pokemon: pokemon));
     } on Object catch (e) {
-      emit(PokemonInformationFailure(errorMessage: e.toString()));
+      emit(PokemonDetailsFailure(errorMessage: e.toString()));
     }
   }
 }

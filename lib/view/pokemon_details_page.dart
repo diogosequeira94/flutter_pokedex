@@ -22,11 +22,11 @@ class PokemonDetailsPage extends StatelessWidget {
       ),
       body: BlocBuilder<PokemonDetailsCubit, PokemonDetailsState>(
         builder: (context, state) {
-          if (state is PokemonInformationInProgress) {
+          if (state is PokemonDetailsInProgress) {
             return const Center(
               child: CircularProgressIndicator(),
             );
-          } else if (state is PokemonInformationSuccess) {
+          } else if (state is PokemonDetailsSuccess) {
             final pokemon = state.pokemon;
             return SingleChildScrollView(
               child: Column(
@@ -50,7 +50,7 @@ class PokemonDetailsPage extends StatelessWidget {
                 ],
               ),
             );
-          } else if (state is PokemonInformationFailure) {
+          } else if (state is PokemonDetailsFailure) {
             return Center(
               child: Text(state.errorMessage),
             );

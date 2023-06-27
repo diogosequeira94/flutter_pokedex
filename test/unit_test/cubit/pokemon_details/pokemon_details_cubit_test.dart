@@ -19,7 +19,7 @@ void main() {
 
   group('Emit States', () {
     test('initial state should be [PokemonInitial]', () {
-      expect(pokemonDetailsCubit.state, equals(PokemonInitial()));
+      expect(pokemonDetailsCubit.state, equals(PokemonDetailsInitial()));
     });
   });
 
@@ -35,8 +35,8 @@ void main() {
         await cubit.fetchPokemonByName('Pickachu');
       },
       expect: () => [
-        PokemonInformationInProgress(),
-        PokemonInformationSuccess(
+        PokemonDetailsInProgress(),
+        PokemonDetailsSuccess(
           pokemon: mockPokemon.copyWith(
             description: mockSpeciesResponse.flavorTextEntries[0].flavorText,
             habitat: mockSpeciesResponse.habitat.name,
@@ -53,8 +53,8 @@ void main() {
         await cubit.fetchPokemonByName('Pickachu');
       },
       expect: () => [
-        PokemonInformationInProgress(),
-        isA<PokemonInformationFailure>(),
+        PokemonDetailsInProgress(),
+        isA<PokemonDetailsFailure>(),
       ],
     );
   });
