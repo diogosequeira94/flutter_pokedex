@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex/cubit/cubit.dart';
 import 'package:pokedex/utils/utils.dart';
-import 'package:pokedex/view/landing_page/landin_page.dart';
+import 'package:pokedex/view/landing_page/landing_page.dart';
 
 class PokemonLandingPage extends StatelessWidget {
   const PokemonLandingPage({Key? key}) : super(key: key);
@@ -42,8 +42,7 @@ class PokemonLandingPage extends StatelessWidget {
                       key: const Key('landingPage_pokemonGrid'),
                       physics: const ScrollPhysics(),
                       shrinkWrap: true,
-                      gridDelegate:
-                          const SliverGridDelegateWithMaxCrossAxisExtent(
+                      gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                         maxCrossAxisExtent: 200,
                         childAspectRatio: 3 / 2,
                         crossAxisSpacing: 10,
@@ -60,7 +59,7 @@ class PokemonLandingPage extends StatelessWidget {
               ),
             );
           }
-          return StartFetchingWidget();
+          return const StartFetchingWidget();
         },
       ),
     );

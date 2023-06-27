@@ -20,8 +20,7 @@ void main() {
   });
 
   test('formats texts with line breaks', () {
-   const unformattedText = 'This\nis\na\npokemon';
-   expect(unformattedText.formatTrivia(), 'This is a pokemon');
+    const unformattedText = 'This\nis\na\npokemon';
+    expect(unformattedText.formatTrivia(), 'This is a pokemon');
   });
-
 }

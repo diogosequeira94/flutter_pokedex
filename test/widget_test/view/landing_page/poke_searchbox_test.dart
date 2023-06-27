@@ -1,18 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:bloc_test/bloc_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:pokedex/cubit/cubit.dart';
 import 'package:pokedex/view/landing_page/poke_searchbox.dart';
 
+import '../../../helpers/widget_test_helper.dart';
 import '../../../mocks/unit_test_mocks.dart';
-
-class MockGenerationCubit extends MockCubit<GenerationState>
-    implements GenerationCubit {}
-
-class MockPokemonDetailsCubit extends MockCubit<PokemonDetailsState>
-    implements PokemonDetailsCubit {}
 
 void main() {
   late GenerationCubit generationCubit;
@@ -25,23 +19,13 @@ void main() {
   setUp(() {
     generationCubit = MockGenerationCubit();
     pokemonDetailsCubit = MockPokemonDetailsCubit();
-    widgetUnderTest = MultiBlocProvider(
-      providers: [
-        BlocProvider<GenerationCubit>(
-          create: (context) => generationCubit,
-        ),
-        BlocProvider<PokemonDetailsCubit>(
-          create: (context) => pokemonDetailsCubit,
-        ),
-      ],
-      child: const MaterialApp(
-          home: Scaffold(
-        body: PokeSearchBox(),
-      )),
+    widgetUnderTest = createWidgetShell(
+      generationCubit: generationCubit,
+      pokemonDetailsCubit: pokemonDetailsCubit,
+      child: const PokeSearchBox(),
     );
 
-    when(() => generationCubit.state)
-        .thenReturn(FetchFirstGenSuccess(pokemonList: mockPokemonList));
+    when(() => generationCubit.state).thenReturn(FetchFirstGenSuccess(pokemonList: mockPokemonList));
   });
 
   group('PokeSearchBox', () {
@@ -54,21 +38,18 @@ void main() {
       expect(find.byKey(searchBoxTextFieldKey), findsOneWidget);
     });
 
-    testWidgets('textField renders without input and correct hint',
-        (tester) async {
+    testWidgets('textField renders without input and correct hint', (tester) async {
       when(() => generationCubit.state).thenReturn(GenerationInitial());
       await tester.pumpWidget(widgetUnderTest);
       await tester.pump();
 
       expect(find.byKey(searchBoxTextFieldKey), findsOneWidget);
-      final finder =
-          tester.widget(find.byKey(searchBoxTextFieldKey)) as TextField;
+      final finder = tester.widget(find.byKey(searchBoxTextFieldKey)) as TextField;
       expect(finder.controller?.text, '');
       expect(finder.decoration?.hintText, 'Pokémon name');
     });
 
-    testWidgets('interacting with textField calls searchBoxChanged method',
-        (tester) async {
+    testWidgets('interacting with textField calls searchBoxChanged method', (tester) async {
       when(() => generationCubit.state).thenReturn(GenerationInitial());
       await tester.pumpWidget(widgetUnderTest);
       await tester.pump();
