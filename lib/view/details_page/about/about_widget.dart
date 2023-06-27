@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/utils/constants.dart';
-import 'package:pokedex/view/details_page/about/abilities_widget.dart';
-import 'package:pokedex/view/details_page/about/weaknesses_widget.dart';
+import 'package:pokedex/view/details_page/about/about.dart';
 import 'package:pokemon/pokemon.dart';
 
 class AboutWidget extends StatelessWidget {
