@@ -43,8 +43,7 @@ void main() {
       expect(find.byKey(cardItemKey), findsOneWidget);
     });
 
-    testWidgets('name widget should display correct name and number',
-        (tester) async {
+    testWidgets('name widget should display correct name and number', (tester) async {
       await tester.pumpWidget(widgetUnderTest);
       await tester.pump();
 
