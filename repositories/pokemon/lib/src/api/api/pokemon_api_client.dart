@@ -11,9 +11,8 @@ class PokemonApiClient {
     try {
       final response = await http.get(Uri.parse(PokemonEndpoints.getFirstPokemonGen()));
       return PokemonGenerationResponse.fromJson(json.decode(response.body) as Map<String, dynamic>);
-    } on Object catch (e) {
-      print('Exception: $e');
-      throw Exception();
+    } on Object catch (error) {
+      throw Exception('Error trying to fetch Pokémons: $error');
     }
   }
 
@@ -21,9 +20,8 @@ class PokemonApiClient {
     try {
       final response = await http.get(Uri.parse(PokemonEndpoints.getPokemonByName(name)));
       return Pokemon.fromJson(json.decode(response.body) as Map<String, dynamic>);
-    } on Object catch (e) {
-      print('Exception: $e');
-      throw Exception();
+    } on Object catch (error) {
+      throw Exception('Error trying to Get Pokémon by name: $error');
     }
   }
 
@@ -31,9 +29,8 @@ class PokemonApiClient {
     try {
       final response = await http.get(Uri.parse(PokemonEndpoints.getSpeciesInformation(name)));
       return SpeciesResponse.fromJson(json.decode(response.body) as Map<String, dynamic>);
-    } on Object catch (e) {
-      print('Exception: $e');
-      throw Exception();
+    } on Object catch (error) {
+      throw Exception('Error trying to get Pokémon Species information: $error');
     }
   }
 }
