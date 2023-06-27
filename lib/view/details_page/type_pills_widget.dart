@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/utils/color_utils.dart';
 import 'package:pokemon/pokemon.dart';
 import 'package:pokedex/utils/extensions.dart';
 
@@ -17,7 +18,7 @@ class TypePillsWidget extends StatelessWidget {
             child: Container(
               width: 90,
               decoration: BoxDecoration(
-                color: _getPillColor(type.type!.name!),
+                color: ColorUtils.getPillTypeColor(type.type!.name!),
                 borderRadius: const BorderRadius.all(
                   Radius.circular(20.0),
                 ),
@@ -32,41 +33,5 @@ class TypePillsWidget extends StatelessWidget {
           ),
       ],
     );
-  }
-
-  Color _getPillColor(String typeName) {
-    switch (typeName) {
-      case 'grass':
-        return Colors.green;
-      case 'water':
-        return Colors.blueAccent;
-      case 'ice':
-        return Colors.blue;
-      case 'fire':
-        return Colors.red;
-      case 'poison':
-        return Colors.purple;
-      case 'bug':
-        return Colors.teal;
-      case 'normal':
-        return Colors.brown.shade100;
-      case 'flying':
-        return Colors.blueGrey;
-      case 'psychic':
-        return Colors.purpleAccent;
-      case 'fighting':
-        return Colors.brown;
-      case 'fairy':
-        return Colors.pinkAccent;
-      case 'ground':
-        return Colors.brown.shade700;
-      case 'rock':
-        return Colors.black45;
-      case 'ghost':
-        return Colors.indigo;
-      case 'dragon':
-        return Colors.redAccent.shade400;
-    }
-    return Colors.amber;
   }
 }

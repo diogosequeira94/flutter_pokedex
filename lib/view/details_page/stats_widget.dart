@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/utils/color_utils.dart';
 import 'package:pokemon/pokemon.dart';
 
 class StatsWidget extends StatelessWidget {
@@ -48,7 +49,7 @@ class StatsWidget extends StatelessWidget {
                             height: maxContainerHeight,
                             width: _calculateStatFillWidth(maxContainerWidth, stats.value!),
                             decoration: BoxDecoration(
-                              color: _getStatColor(stats.stat!.name!),
+                              color: ColorUtils.getStatColor(stats.stat!.name!),
                               borderRadius: const BorderRadius.all(
                                 Radius.circular(statsPillRadius),
                               ),
@@ -117,23 +118,5 @@ class StatsWidget extends StatelessWidget {
         return 'SPE';
     }
     return 'EXP';
-  }
-
-  Color _getStatColor(String statName) {
-    switch (statName) {
-      case 'hp':
-        return Colors.red;
-      case 'attack':
-        return Colors.orange;
-      case 'defense':
-        return Colors.blue;
-      case 'special-attack':
-        return Colors.amber;
-      case 'special-defense':
-        return Colors.blueAccent.shade700;
-      case 'speed':
-        return Colors.black54;
-    }
-    return Colors.pink;
   }
 }
