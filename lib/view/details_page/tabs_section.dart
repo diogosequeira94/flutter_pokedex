@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/utils/constants.dart';
+import 'package:pokedex/view/details_page/about/evolutions_chart.dart';
 import 'package:pokedex/view/details_page/details_page.dart';
 import 'package:pokemon/pokemon.dart';
 
@@ -48,12 +49,7 @@ class TabsSection extends StatelessWidget {
                   children: <Widget>[
                     AboutWidget(pokemon: pokemon),
                     StatsWidget(statsList: pokemon.stats),
-                    const Center(
-                      child: Text(
-                        'Under implementation...',
-                        style: TextStyle(color: Colors.white, fontSize: 18.0),
-                      ),
-                    ),
+                    const EvolutionsChart(),
                     MovesWidget(moves: pokemon.moves),
                   ],
                 ),

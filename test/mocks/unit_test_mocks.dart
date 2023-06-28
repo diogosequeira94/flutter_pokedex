@@ -11,6 +11,8 @@ final mockPokemonList = [
 ];
 
 const mockPokemon = Pokemon(
+  name: 'bulbasaur',
+  id: 1,
   height: 20,
   weight: 20,
   abilities: [],

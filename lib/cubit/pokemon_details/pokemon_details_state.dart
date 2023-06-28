@@ -27,3 +27,20 @@ class PokemonDetailsFailure extends PokemonDetailsState {
   @override
   List<Object> get props => [errorMessage];
 }
+
+class PokemonEvolutionDetailsInProgress extends PokemonDetailsState {
+  @override
+  List<Object> get props => [];
+}
+
+class PokemonEvolutionDetailsSuccess extends PokemonDetailsState {
+  final Evolution evolutionChain;
+  const PokemonEvolutionDetailsSuccess({required this.evolutionChain});
+  @override
+  List<Object> get props => [evolutionChain];
+}
+
+class PokemonEvolutionDetailsNoEvolutions extends PokemonDetailsState {
+  @override
+  List<Object?> get props => [];
+}

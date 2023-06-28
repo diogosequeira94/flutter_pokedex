@@ -28,4 +28,22 @@ class PokemonDetailsCubit extends Cubit<PokemonDetailsState> {
       emit(PokemonDetailsFailure(errorMessage: e.toString()));
     }
   }
+
+  Future<void> fetchEvolutions() async {
+    emit(PokemonEvolutionDetailsInProgress());
+    try {
+      final evolutionInfo = await pokemonRepository.getEvolutions();
+      print('EVOLUTION INFO');
+
+      print(evolutionInfo);
+
+      /*final evolutionChain = evolutionInfo
+          .where((evolution) => evolution.name!.toLowerCase() == currentPokemon.name);
+
+      emit(PokemonEvolutionDetailsSuccess(evolutionChain: evolutionChain));
+      */
+    } on Object catch (e) {
+      emit(PokemonDetailsFailure(errorMessage: e.toString()));
+    }
+  }
 }

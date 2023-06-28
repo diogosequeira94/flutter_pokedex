@@ -1,7 +1,5 @@
 import 'package:mocktail/mocktail.dart';
 import 'package:pokemon/pokemon.dart';
-import 'package:pokemon/src/api/models/species/habitat.dart';
-import 'package:pokemon/src/api/models/species/species_response.dart';
 import 'package:test/test.dart';
 
 class MockPokemonApiClient extends Mock implements PokemonApiClient {}
@@ -27,6 +25,8 @@ void main() {
 
     test('getPokemonByName is called and returns Pokemon', () async {
       const pokemon = Pokemon(
+        name: 'bulbasaur',
+        id: 1,
         height: 2,
         weight: 2,
         abilities: [],

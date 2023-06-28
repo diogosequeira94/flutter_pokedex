@@ -6,6 +6,10 @@ part 'pokemon.g.dart';
 
 @JsonSerializable()
 class Pokemon extends Equatable {
+  @JsonKey(name: 'name')
+  final String? name;
+  @JsonKey(name: 'id')
+  final int? id;
   @JsonKey(name: 'height')
   final int? height;
   @JsonKey(name: 'weight')
@@ -24,6 +28,8 @@ class Pokemon extends Equatable {
   final List<Stats> stats;
 
   const Pokemon({
+    required this.name,
+    required this.id,
     required this.height,
     required this.weight,
     this.description,
@@ -36,6 +42,8 @@ class Pokemon extends Equatable {
 
   @override
   List<Object?> get props => [
+        name,
+        id,
         height,
         weight,
         description,
@@ -49,6 +57,8 @@ class Pokemon extends Equatable {
   factory Pokemon.fromJson(Map<String, dynamic> json) => _$PokemonFromJson(json);
 
   Pokemon copyWith({
+    String? name,
+    int? id,
     int? height,
     int? weight,
     String? description,
@@ -59,6 +69,8 @@ class Pokemon extends Equatable {
     List<PokeTypes>? types,
   }) {
     return Pokemon(
+      name: name ?? this.name,
+      id: id ?? this.id,
       height: height ?? this.height,
       weight: weight ?? this.weight,
       description: description ?? this.description,
