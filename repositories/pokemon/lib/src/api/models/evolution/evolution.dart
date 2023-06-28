@@ -8,9 +8,11 @@ class Evolution extends Equatable {
   @JsonKey(name: 'name')
   final String? name;
   @JsonKey(name: 'id')
-  final int? id;
+  final String? id;
   @JsonKey(name: 'evolutions')
   final List<String>? evolutions;
+  @JsonKey(name: 'evolvedFrom')
+  final String? evolvedFrom;
   @JsonKey(name: 'reason')
   final String reason;
 
@@ -18,11 +20,12 @@ class Evolution extends Equatable {
     required this.name,
     required this.id,
     required this.evolutions,
+    required this.evolvedFrom,
     required this.reason,
   });
 
   @override
-  List<Object?> get props => [name, id, evolutions, reason];
+  List<Object?> get props => [name, id, evolutions, evolvedFrom, reason];
 
   factory Evolution.fromJson(Map<String, dynamic> json) => _$EvolutionFromJson(json);
 }
