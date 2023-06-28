@@ -14,7 +14,7 @@ class PokemonCardItem extends StatelessWidget {
     return GestureDetector(
       key: const Key('landingPage_pokemonItemCard'),
       onTap: () {
-        context.read<PokemonDetailsCubit>().fetchPokemonByName(pokeItem.name);
+        context.read<PokemonDetailsCubit>().fetchPokemonDetailsByName(pokeItem.name);
         print('TAPPED');
         Navigator.push(
           context,

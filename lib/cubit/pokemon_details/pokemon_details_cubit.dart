@@ -9,18 +9,22 @@ class PokemonDetailsCubit extends Cubit<PokemonDetailsState> {
   final PokemonRepository pokemonRepository;
   PokemonDetailsCubit(this.pokemonRepository) : super(PokemonDetailsInitial());
 
-  Future<void> fetchPokemonByName(String name) async {
+  /// Fetches [Pokemon] details data from different endpoints
+  /// in an optimal scenario response should come from a unique ep
+  ///
+  Future<void> fetchPokemonDetailsByName(String name) async {
     emit(PokemonDetailsInProgress());
     try {
       final pokemonBaseInfo = await pokemonRepository.getPokemonByName(name: name);
-
       final pokemonSpeciesInfo = await pokemonRepository.getSpeciesInformation(name: name);
+      final pokemonEvolutions = await _fetchEvolutions(name);
 
       final firstDescription = pokemonSpeciesInfo.flavorTextEntries[0].flavorText.formatTrivia();
 
       final pokemon = pokemonBaseInfo.copyWith(
         description: firstDescription,
         habitat: pokemonSpeciesInfo.habitat.name.capitalize(),
+        evolutions: pokemonEvolutions,
       );
 
       emit(PokemonDetailsSuccess(pokemon: pokemon));
@@ -29,18 +33,18 @@ class PokemonDetailsCubit extends Cubit<PokemonDetailsState> {
     }
   }
 
-  Future<void> fetchEvolutions(String name) async {
-    emit(PokemonEvolutionDetailsInProgress());
+  Future<Evolution?> _fetchEvolutions(String name) async {
     try {
       final evolutionInfo = await pokemonRepository.getEvolutions();
-
-      final evolutionChain = evolutionInfo.where((evolution) => evolution.name!.toLowerCase() == name);
-
-      print(evolutionChain);
-
-      //  emit(PokemonEvolutionDetailsSuccess(evolutionChain: evolutionChain));
+      final evolutionChain = evolutionInfo.singleWhere((evolution) => evolution.name!.toLowerCase() == name);
+      return _hasSingleEvolution(evolutionChain) ? null : evolutionChain;
     } on Object catch (e) {
       emit(PokemonDetailsFailure(errorMessage: e.toString()));
     }
+    return null;
+  }
+
+  bool _hasSingleEvolution(Evolution evolutionChain) {
+    return evolutionChain.id == evolutionChain.evolutions![0] && evolutionChain.evolutions!.length <= 2;
   }
 }

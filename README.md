@@ -25,9 +25,9 @@ A digital Pokémon encyclopedia that has information of a Pokémon statistics, a
 - [x] SearchBox
 - [x] Repository Unit testing
 - [x] Cubit Unit testing
-- [ ] Widget testing
+- [x] Widget testing
 - [ ] Pokedex AppBar
-- [ ] Pokemon Info - Evolution
+- [x] Pokemon Info - Evolution
 - [ ] Add support for Legendary/Mythical/Baby
 - [ ] Local Cache
 - [ ] Improve Architecture

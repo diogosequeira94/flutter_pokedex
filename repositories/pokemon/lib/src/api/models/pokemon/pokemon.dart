@@ -16,6 +16,7 @@ class Pokemon extends Equatable {
   final int? weight;
 
   /// ToDo: Move to UI Model
+  final Evolution? evolutions;
   final String? description;
   final String? habitat;
   @JsonKey(name: 'abilities')
@@ -32,6 +33,7 @@ class Pokemon extends Equatable {
     required this.id,
     required this.height,
     required this.weight,
+    this.evolutions,
     this.description,
     this.habitat,
     required this.abilities,
@@ -46,6 +48,7 @@ class Pokemon extends Equatable {
         id,
         height,
         weight,
+        evolutions,
         description,
         habitat,
         abilities,
@@ -61,6 +64,7 @@ class Pokemon extends Equatable {
     int? id,
     int? height,
     int? weight,
+    Evolution? evolutions,
     String? description,
     String? habitat,
     List<Abilities>? abilities,
@@ -73,6 +77,7 @@ class Pokemon extends Equatable {
       id: id ?? this.id,
       height: height ?? this.height,
       weight: weight ?? this.weight,
+      evolutions: evolutions ?? this.evolutions,
       description: description ?? this.description,
       habitat: habitat ?? this.habitat,
       abilities: abilities ?? this.abilities,

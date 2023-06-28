@@ -33,14 +33,20 @@ class PokemonEvolutionDetailsInProgress extends PokemonDetailsState {
   List<Object> get props => [];
 }
 
-class PokemonEvolutionDetailsSuccess extends PokemonDetailsState {
+class PokemonEvolutionDetailsSuccess extends PokemonDetailsSuccess {
   final Evolution evolutionChain;
-  const PokemonEvolutionDetailsSuccess({required this.evolutionChain});
+  const PokemonEvolutionDetailsSuccess({
+    required this.evolutionChain,
+    required pokemon,
+  }) : super(pokemon: pokemon);
   @override
-  List<Object> get props => [evolutionChain];
+  List<Object> get props => [evolutionChain, pokemon];
 }
 
-class PokemonEvolutionDetailsNoEvolutions extends PokemonDetailsState {
+class PokemonEvolutionDetailsNoEvolutions extends PokemonEvolutionDetailsSuccess {
+  const PokemonEvolutionDetailsNoEvolutions({required pokemon, required evolutionChain})
+      : super(evolutionChain: evolutionChain, pokemon: pokemon);
+
   @override
-  List<Object?> get props => [];
+  List<Object> get props => [pokemon, evolutionChain];
 }

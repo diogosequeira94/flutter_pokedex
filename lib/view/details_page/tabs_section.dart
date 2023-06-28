@@ -49,7 +49,7 @@ class TabsSection extends StatelessWidget {
                   children: <Widget>[
                     AboutWidget(pokemon: pokemon),
                     StatsWidget(statsList: pokemon.stats),
-                    EvolutionsChart(name: pokemon.name),
+                    const EvolutionsChart(),
                     MovesWidget(moves: pokemon.moves),
                   ],
                 ),
