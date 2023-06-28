@@ -38,7 +38,7 @@ class PokemonApiClient {
   Future<List<Evolution>> getEvolutions() async {
     try {
       final response = await http.get(Uri.parse(PokemonEndpoints.getEvolutions()));
-      return (response as List).map((evolution) => Evolution.fromJson(evolution)).toList();
+      return (json.decode(response.body) as List).map((evolution) => Evolution.fromJson(evolution)).toList();
     } on Object catch (error) {
       throw Exception('Error trying to get Pokémon evolutions: $error');
     }

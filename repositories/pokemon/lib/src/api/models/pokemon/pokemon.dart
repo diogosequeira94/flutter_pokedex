@@ -7,9 +7,9 @@ part 'pokemon.g.dart';
 @JsonSerializable()
 class Pokemon extends Equatable {
   @JsonKey(name: 'name')
-  final String? name;
+  final String name;
   @JsonKey(name: 'id')
-  final int? id;
+  final int id;
   @JsonKey(name: 'height')
   final int? height;
   @JsonKey(name: 'weight')

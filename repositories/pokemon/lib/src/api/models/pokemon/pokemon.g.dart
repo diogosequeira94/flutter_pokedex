@@ -7,8 +7,8 @@ part of 'pokemon.dart';
 // **************************************************************************
 
 Pokemon _$PokemonFromJson(Map<String, dynamic> json) => Pokemon(
-      name: json['name'] as String?,
-      id: json['id'] as int?,
+      name: json['name'] as String,
+      id: json['id'] as int,
       height: json['height'] as int?,
       weight: json['weight'] as int?,
       description: json['description'] as String?,
