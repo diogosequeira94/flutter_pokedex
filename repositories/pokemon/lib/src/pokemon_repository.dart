@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokemon/src/api/models/evolution/evolution.dart';
 import 'api/api/pokemon_api_client.dart';
 import 'api/models/models.dart';
 
@@ -6,6 +7,7 @@ abstract class IPokemonRepository {
   Future<PokemonGenerationResponse> getFirstPokemonGen();
   Future<Pokemon> getPokemonByName({required String name});
   Future<SpeciesResponse> getSpeciesInformation({required String name});
+  Future<List<Evolution>> getEvolutions();
 }
 
 class PokemonRepository extends IPokemonRepository {
@@ -41,5 +43,10 @@ class PokemonRepository extends IPokemonRepository {
   @override
   Future<SpeciesResponse> getSpeciesInformation({required String name}) async {
     return await _pokemonApiClient.getSpeciesInformation(name);
+  }
+
+  @override
+  Future<List<Evolution>> getEvolutions() async {
+    return await _pokemonApiClient.getEvolutions();
   }
 }
