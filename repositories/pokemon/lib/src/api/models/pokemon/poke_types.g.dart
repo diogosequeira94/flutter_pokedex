@@ -7,7 +7,9 @@ part of 'poke_types.dart';
 // **************************************************************************
 
 PokeTypes _$PokeTypesFromJson(Map<String, dynamic> json) => PokeTypes(
-      type: json['type'] == null ? null : PokeType.fromJson(json['type'] as Map<String, dynamic>),
+      type: json['type'] == null
+          ? null
+          : PokeType.fromJson(json['type'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$PokeTypesToJson(PokeTypes instance) => <String, dynamic>{

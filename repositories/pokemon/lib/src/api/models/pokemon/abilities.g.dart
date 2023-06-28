@@ -7,7 +7,9 @@ part of 'abilities.dart';
 // **************************************************************************
 
 Abilities _$AbilitiesFromJson(Map<String, dynamic> json) => Abilities(
-      ability: json['ability'] == null ? null : Ability.fromJson(json['ability'] as Map<String, dynamic>),
+      ability: json['ability'] == null
+          ? null
+          : Ability.fromJson(json['ability'] as Map<String, dynamic>),
       isHidden: json['is_hidden'] as bool?,
     );
 
