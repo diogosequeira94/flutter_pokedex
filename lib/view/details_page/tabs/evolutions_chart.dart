@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex/cubit/cubit.dart';
 import 'package:pokedex/utils/utils.dart';
-import 'package:pokedex/view/pokemon_details_page.dart';
 
 class EvolutionsChart extends StatelessWidget {
   const EvolutionsChart({super.key});
@@ -60,7 +59,7 @@ class _EvolutionRow extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () {
-            _getEvolutionInfo(context, 'pikachu', 24);
+            _getEvolutionInfo(context, currentForm);
           },
           child: getAsset(currentForm),
         ),
@@ -78,7 +77,7 @@ class _EvolutionRow extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () {
-            _getEvolutionInfo(context, 'pikachu', 24);
+            _getEvolutionInfo(context, evolvedForm);
           },
           child: getAsset(evolvedForm),
         ),
@@ -87,8 +86,9 @@ class _EvolutionRow extends StatelessWidget {
   }
 
 
-  void _getEvolutionInfo(BuildContext context, String name, int id){
-    context.read<PokemonDetailsCubit>().fetchPokemonDetailsByName(name);
+  void _getEvolutionInfo(BuildContext context, String id){
+    final pokemonName = context.read<GenerationCubit>().getPokemonNameById(id);
+    context.read<PokemonDetailsCubit>().fetchPokemonDetailsByName(pokemonName);
   }
 
   Widget getAsset(String id) {

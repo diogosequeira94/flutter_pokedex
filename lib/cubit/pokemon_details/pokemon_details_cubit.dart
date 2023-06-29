@@ -18,6 +18,7 @@ class PokemonDetailsCubit extends Cubit<PokemonDetailsState> {
       final pokemonBaseInfo = await pokemonRepository.getPokemonByName(name: name);
       final pokemonSpeciesInfo = await pokemonRepository.getSpeciesInformation(name: name);
       final pokemonEvolutions = await _fetchEvolutions(name);
+      print('EVOLUTIONS MON: $pokemonEvolutions');
 
       final firstDescription = pokemonSpeciesInfo.flavorTextEntries[0].flavorText.formatTrivia();
 
@@ -34,11 +35,15 @@ class PokemonDetailsCubit extends Cubit<PokemonDetailsState> {
   }
 
   Future<Evolution?> _fetchEvolutions(String name) async {
+    print('ENTRY NAME: $name');
     try {
       final evolutionInfo = await pokemonRepository.getEvolutions();
+      print('#### INFO $evolutionInfo');
       final evolutionChain = evolutionInfo.singleWhere((evolution) => evolution.name!.toLowerCase() == name);
+      print('#### EVOS $evolutionChain');
       return _hasSingleEvolution(evolutionChain) ? null : evolutionChain;
     } on Object catch (e) {
+      print(e);
       emit(PokemonDetailsFailure(errorMessage: e.toString()));
     }
     return null;

@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:pokedex/cubit/generation/model/pokemon_basic_item.dart';
+import 'package:pokedex/utils/utils.dart';
 import 'package:pokemon/pokemon.dart';
 
 part 'generation_state.dart';
@@ -43,5 +44,10 @@ class GenerationCubit extends Cubit<GenerationState> {
   void searchBoxChanged(String query) async {
     var tempList = pokemonList.where((pokemon) => pokemon.name.toLowerCase().contains(query.toLowerCase())).toList();
     emit(SearchBoxChangedSuccess(pokemonList: tempList));
+  }
+
+  String getPokemonNameById(String id) {
+    var pokemon = pokemonList.singleWhere((pokemon) => pokemon.number.normalizeIndex() == id);
+    return pokemon.name;
   }
 }

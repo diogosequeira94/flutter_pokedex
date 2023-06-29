@@ -5,12 +5,8 @@ import 'package:pokedex/view/details_page/details_page.dart';
 import 'package:pokedex/view/details_page/tabs_section.dart';
 
 class PokemonDetailsPage extends StatelessWidget {
-  final String pokemonName;
-  final int pokemonIndex;
   const PokemonDetailsPage({
     Key? key,
-    required this.pokemonName,
-    required this.pokemonIndex,
   }) : super(key: key);
 
   @override
@@ -34,8 +30,8 @@ class PokemonDetailsPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   PokeSpriteInfo(
-                    pokemonName: pokemonName,
-                    pokemonIndex: pokemonIndex,
+                    pokemonName: state.pokemon.name,
+                    pokemonIndex: state.pokemon.id,
                   ),
                   TypePillsWidget(types: state.pokemon.types),
                   const SizedBox(height: 30.0),

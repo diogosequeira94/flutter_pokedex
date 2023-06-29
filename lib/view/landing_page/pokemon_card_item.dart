@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pokedex/cubit/cubit.dart';
 import 'package:pokedex/cubit/generation/model/pokemon_basic_item.dart';
 import 'package:pokedex/cubit/pokemon_details/pokemon_details_cubit.dart';
 import 'package:pokedex/utils/utils.dart';
@@ -14,13 +15,22 @@ class PokemonCardItem extends StatelessWidget {
     return GestureDetector(
       key: const Key('landingPage_pokemonItemCard'),
       onTap: () {
-        context.read<PokemonDetailsCubit>().fetchPokemonDetailsByName(pokeItem.name);
+        context
+            .read<PokemonDetailsCubit>()
+            .fetchPokemonDetailsByName(pokeItem.name);
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (_) => BlocProvider.value(
-              value: context.read<PokemonDetailsCubit>(),
-              child: PokemonDetailsPage(pokemonName: pokeItem.name, pokemonIndex: pokeItem.number),
+            builder: (_) => MultiBlocProvider(
+              providers: [
+                BlocProvider.value(
+                  value: context.read<PokemonDetailsCubit>(),
+                ),
+                BlocProvider.value(
+                  value: context.read<GenerationCubit>(),
+                )
+              ],
+              child: const PokemonDetailsPage(),
             ),
           ),
         );
