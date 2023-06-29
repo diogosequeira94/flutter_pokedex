@@ -55,11 +55,14 @@ class _EvolutionRow extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        _sizedContainer(
-          CachedNetworkImage(
-            imageUrl: PokemonEndpoints.getPokemonSprite(currentForm),
-            placeholder: (context, url) => const CircularProgressIndicator(),
-            errorWidget: (context, url, error) => const Icon(Icons.error),
+        GestureDetector(
+          onTap: () {},
+          child: _sizedContainer(
+            CachedNetworkImage(
+              imageUrl: PokemonEndpoints.getPokemonSprite(currentForm),
+              placeholder: (context, url) => const CircularProgressIndicator(),
+              errorWidget: (context, url, error) => const Icon(Icons.error),
+            ),
           ),
         ),
         Padding(
@@ -75,16 +78,35 @@ class _EvolutionRow extends StatelessWidget {
             ],
           ),
         ),
-        _sizedContainer(
-          CachedNetworkImage(
-            imageUrl: PokemonEndpoints.getPokemonSprite(evolvedForm),
-            placeholder: (context, url) => const CircularProgressIndicator(),
-            errorWidget: (context, url, error) => const Icon(Icons.error),
+        GestureDetector(
+          onTap: () {},
+          child: _sizedContainer(
+            CachedNetworkImage(
+              imageUrl: PokemonEndpoints.getPokemonSprite(evolvedForm),
+              placeholder: (context, url) => const CircularProgressIndicator(),
+              errorWidget: (context, url, error) => const Icon(Icons.error),
+            ),
           ),
         ),
       ],
     );
   }
+
+/*
+  void _navigateToPokemonDetailsPage(BuildContext context, String name, int id){
+    context.read<PokemonDetailsCubit>().fetchPokemonDetailsByName(name);
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (_) => BlocProvider.value(
+          value: context.read<PokemonDetailsCubit>(),
+          child: PokemonDetailsPage(pokemonName: name, pokemonIndex: id),
+        ),
+      ),
+    );
+  }
+
+ */
 
   Widget _sizedContainer(Widget child) {
     return SizedBox(
