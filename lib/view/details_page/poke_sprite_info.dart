@@ -11,7 +11,7 @@ class PokeSpriteInfo extends StatelessWidget {
     return Column(
       children: [
         Image.asset(
-          'assets/gen1/${pokemonIndex.normalizeIndex()}.jpeg',
+          'assets/gen1/${pokemonIndex.normalizeIndex()}.png',
           fit: BoxFit.cover,
           width: 200.0,
           height: 200.0,
