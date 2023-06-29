@@ -35,7 +35,7 @@ void main() {
           create: (context) => pokemonDetailsCubit,
         ),
       ],
-      child: const MaterialApp(home: PokemonLandingPage()),
+      child: const MaterialApp(home: PokemonHomePage()),
     );
   });
 

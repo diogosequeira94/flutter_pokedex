@@ -4,8 +4,8 @@ import 'package:pokedex/cubit/cubit.dart';
 import 'package:pokedex/utils/utils.dart';
 import 'package:pokedex/view/home_page/home_page.dart';
 
-class PokemonLandingPage extends StatelessWidget {
-  const PokemonLandingPage({Key? key}) : super(key: key);
+class PokemonHomePage extends StatelessWidget {
+  const PokemonHomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
