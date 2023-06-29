@@ -20,44 +20,44 @@ class TabsSection extends StatelessWidget {
         ),
       ),
       child: DefaultTabController(
-        key: const Key('tabsSection_tabController'),
-        length: 4,
-        child: SizedBox(
-          height: 275.0,
-          child: Column(
-            children: <Widget>[
-              const TabBar(
-                indicatorColor: Colors.white,
-                labelPadding: EdgeInsets.zero,
-                tabs: <Widget>[
-                  Tab(
-                    text: 'About',
-                  ),
-                  Tab(
-                    text: 'Stats',
-                  ),
-                  Tab(
-                    text: 'Evolutions',
-                  ),
-                  Tab(
-                    text: 'Moves',
-                  ),
-                ],
-              ),
-              Expanded(
-                child: TabBarView(
-                  children: <Widget>[
-                    AboutWidget(pokemon: pokemon),
-                    StatsWidget(statsList: pokemon.stats),
-                    const EvolutionsChart(),
-                    MovesWidget(moves: pokemon.moves),
+          key: const Key('tabsSection_tabController'),
+          length: 4,
+          child: SizedBox(
+            height: 275.0,
+            child: Column(
+              children: <Widget>[
+                const TabBar(
+                  indicatorColor: Colors.white,
+                  labelPadding: EdgeInsets.zero,
+                  tabs: <Widget>[
+                    Tab(
+                      text: 'About',
+                    ),
+                    Tab(
+                      text: 'Stats',
+                    ),
+                    Tab(
+                      text: 'Evolutions',
+                    ),
+                    Tab(
+                      text: 'Moves',
+                    ),
                   ],
                 ),
-              ),
-            ],
+                Expanded(
+                  child: TabBarView(
+                    children: <Widget>[
+                      AboutWidget(pokemon: pokemon),
+                      StatsWidget(statsList: pokemon.stats),
+                      const EvolutionsChart(),
+                      MovesWidget(moves: pokemon.moves),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
-      ),
-    );
+      );
   }
 }

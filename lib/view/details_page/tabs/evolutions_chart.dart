@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex/cubit/cubit.dart';
 import 'package:pokedex/utils/utils.dart';
+import 'package:pokedex/view/pokemon_details_page.dart';
 
 class EvolutionsChart extends StatelessWidget {
   const EvolutionsChart({super.key});
@@ -58,7 +59,9 @@ class _EvolutionRow extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         GestureDetector(
-          onTap: () {},
+          onTap: () {
+            _getEvolutionInfo(context, 'pikachu', 24);
+          },
           child: getAsset(currentForm),
         ),
         Padding(
@@ -74,32 +77,23 @@ class _EvolutionRow extends StatelessWidget {
           ),
         ),
         GestureDetector(
-          onTap: () {},
+          onTap: () {
+            _getEvolutionInfo(context, 'pikachu', 24);
+          },
           child: getAsset(evolvedForm),
         ),
       ],
     );
   }
 
-/*
-  void _navigateToPokemonDetailsPage(BuildContext context, String name, int id){
-    context.read<PokemonDetailsCubit>().fetchPokemonDetailsByName(name);
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(
-        builder: (_) => BlocProvider.value(
-          value: context.read<PokemonDetailsCubit>(),
-          child: PokemonDetailsPage(pokemonName: name, pokemonIndex: id),
-        ),
-      ),
-    );
-  }
 
- */
+  void _getEvolutionInfo(BuildContext context, String name, int id){
+    context.read<PokemonDetailsCubit>().fetchPokemonDetailsByName(name);
+  }
 
   Widget getAsset(String id) {
     return Image.asset(
-      Constants.getPokemonSprite(evolvedForm),
+      Constants.getPokemonSprite(id),
       fit: BoxFit.cover,
       width: 125.0,
       height: 125.0,

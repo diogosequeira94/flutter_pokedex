@@ -11,14 +11,17 @@ class PokeSpriteInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Image.asset(
-          Constants.getPokemonSprite(pokemonIndex.normalizeIndex()),
-          fit: BoxFit.cover,
-          width: 200.0,
-          height: 200.0,
+        Padding(
+          padding: const EdgeInsets.only(top: 20.0),
+          child: Image.asset(
+            Constants.getPokemonSprite(pokemonIndex.normalizeIndex()),
+            fit: BoxFit.cover,
+            width: 200.0,
+            height: 200.0,
+          ),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 20.0),
+          padding: const EdgeInsets.only(top: 10.0, bottom: 20.0),
           child: Text(
             pokemonName.capitalize(),
             style: const TextStyle(fontSize: 30.0),

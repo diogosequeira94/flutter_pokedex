@@ -45,7 +45,7 @@ class PokemonCardItem extends StatelessWidget {
               key: const Key('pokeCard_name'),
             ),
             Text(
-              '#${pokeItem.number}',
+              '#${pokeItem.number.normalizeIndex()}',
               key: const Key('pokeCard_number'),
             ),
           ],
