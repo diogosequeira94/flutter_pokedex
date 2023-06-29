@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex/cubit/cubit.dart';
-import 'package:pokedex/view/pokemon_landing_page.dart';
+import 'package:pokedex/view/pokemon_home_page.dart';
 import 'package:pokemon/pokemon.dart';
 
 void main() {

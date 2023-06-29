@@ -4,7 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:pokedex/cubit/cubit.dart';
-import 'package:pokedex/view/pokemon_landing_page.dart';
+import 'package:pokedex/view/pokemon_home_page.dart';
 
 import '../../mocks/unit_test_mocks.dart';
 

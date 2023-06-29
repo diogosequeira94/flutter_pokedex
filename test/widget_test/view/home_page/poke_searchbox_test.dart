@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:pokedex/cubit/cubit.dart';
-import 'package:pokedex/view/landing_page/poke_searchbox.dart';
+import 'package:pokedex/view/home_page/poke_searchbox.dart';
 
 import '../../../helpers/widget_test_helper.dart';
 import '../../../mocks/unit_test_mocks.dart';

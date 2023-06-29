@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex/cubit/cubit.dart';
 import 'package:pokedex/utils/utils.dart';
-import 'package:pokedex/view/landing_page/landing_page.dart';
+import 'package:pokedex/view/home_page/home_page.dart';
+import 'package:pokedex/view/home_page/pokemon_grid_widget.dart';
+import 'package:pokedex/view/home_page/pokemon_list_widget.dart';
 
 class PokemonLandingPage extends StatelessWidget {
   const PokemonLandingPage({Key? key}) : super(key: key);
@@ -10,6 +12,11 @@ class PokemonLandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+          child: const Icon(Icons.list_rounded),
+          onPressed: () {
+            context.read<GenerationCubit>().toggleViewMode();
+          }),
       body: BlocBuilder<GenerationCubit, GenerationState>(
         builder: (context, state) {
           if (state is FetchFirstGenFailure) {
@@ -36,26 +43,9 @@ class PokemonLandingPage extends StatelessWidget {
                   const PokeSearchBox(
                     key: Key('landingPage_pokeSearchBox'),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 10.0),
-                    child: GridView.builder(
-                      key: const Key('landingPage_pokemonGrid'),
-                      physics: const ScrollPhysics(),
-                      shrinkWrap: true,
-                      gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                        maxCrossAxisExtent: 250,
-                        mainAxisExtent: 200,
-                        childAspectRatio: 3 / 2,
-                        crossAxisSpacing: 10,
-                        mainAxisSpacing: 10,
-                      ),
-                      itemCount: state.pokemonList.length,
-                      itemBuilder: (context, index) {
-                        final pokeItem = state.pokemonList[index];
-                        return PokemonCardItem(pokeItem: pokeItem);
-                      },
-                    ),
-                  ),
+                  state.pokemonViewMode == PokemonViewMode.gridView
+                      ? PokemonGridWidget(pokemonList: state.pokemonList)
+                      : PokemonListWidget(pokemonList: state.pokemonList),
                 ],
               ),
             );

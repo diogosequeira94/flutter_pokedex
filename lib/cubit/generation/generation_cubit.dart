@@ -7,6 +7,11 @@ import 'package:pokemon/pokemon.dart';
 
 part 'generation_state.dart';
 
+enum PokemonViewMode {
+  listView,
+  gridView,
+}
+
 class GenerationCubit extends Cubit<GenerationState> {
   GenerationCubit({required PokemonRepository pokemonRepository})
       : _pokemonRepository = pokemonRepository,
@@ -17,7 +22,8 @@ class GenerationCubit extends Cubit<GenerationState> {
   @visibleForTesting
   final List<PokemonBasicItem> pokemonList = [];
 
-  int indexCounter = 1;
+  var selectedViewMode = PokemonViewMode.gridView;
+  int _indexCounter = 1;
 
   Future<void> fetchPokemonGeneration() async {
     emit(FetchFirstGenInProgress());
@@ -28,12 +34,12 @@ class GenerationCubit extends Cubit<GenerationState> {
       for (var pokemonItem in responseList) {
         final pokemon = PokemonBasicItem(
           name: pokemonItem.name,
-          number: indexCounter,
+          number: _indexCounter,
         );
         pokemonList.add(pokemon);
-        indexCounter++;
+        _indexCounter++;
       }
-      indexCounter = 1;
+      _indexCounter = 1;
 
       emit(FetchFirstGenSuccess(pokemonList: pokemonList));
     } on Object catch (e) {
@@ -41,9 +47,16 @@ class GenerationCubit extends Cubit<GenerationState> {
     }
   }
 
-  void searchBoxChanged(String query) async {
+  void searchBoxChanged(String query) {
     var tempList = pokemonList.where((pokemon) => pokemon.name.toLowerCase().contains(query.toLowerCase())).toList();
     emit(SearchBoxChangedSuccess(pokemonList: tempList));
+  }
+
+  void toggleViewMode() {
+    final newViewMode =
+        selectedViewMode == PokemonViewMode.listView ? PokemonViewMode.gridView : PokemonViewMode.listView;
+    selectedViewMode = newViewMode;
+    emit(FetchFirstGenSuccess(pokemonList: pokemonList, pokemonViewMode: selectedViewMode));
   }
 
   String getPokemonNameById(String id) {
