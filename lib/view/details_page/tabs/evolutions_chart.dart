@@ -85,8 +85,7 @@ class _EvolutionRow extends StatelessWidget {
     );
   }
 
-
-  void _getEvolutionInfo(BuildContext context, String id){
+  void _getEvolutionInfo(BuildContext context, String id) {
     final pokemonName = context.read<GenerationCubit>().getPokemonNameById(id);
     context.read<PokemonDetailsCubit>().fetchPokemonDetailsByName(pokemonName);
   }
