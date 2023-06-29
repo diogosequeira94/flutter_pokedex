@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/utils/extensions.dart';
+import 'package:pokedex/utils/utils.dart';
 
 class PokeSpriteInfo extends StatelessWidget {
   final String pokemonName;
@@ -11,7 +12,7 @@ class PokeSpriteInfo extends StatelessWidget {
     return Column(
       children: [
         Image.asset(
-          'assets/gen1/${pokemonIndex.normalizeIndex()}.png',
+          Constants.getPokemonSprite(pokemonIndex.normalizeIndex()),
           fit: BoxFit.cover,
           width: 200.0,
           height: 200.0,

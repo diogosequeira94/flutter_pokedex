@@ -34,10 +34,10 @@ class PokemonCardItem extends StatelessWidget {
           children: [
             Image.asset(
               key: const Key('pokeCard_sprite'),
-              'assets/gen1/${pokeItem.number.normalizeIndex()}.png',
+              Constants.getPokemonSprite(pokeItem.number.normalizeIndex()),
               fit: BoxFit.cover,
               width: 80.0,
-              height: 80,
+              height: 80.0,
             ),
             const SizedBox(height: 4.0),
             Text(

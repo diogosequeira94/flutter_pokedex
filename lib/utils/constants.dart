@@ -9,5 +9,5 @@ class Constants {
 
   /// Assets
   static const pokedexAssetPath = 'assets/pokedex.png';
-  static String getPokemonSprite(String id) => "https://assets.pokemon.com/assets/cms2/img/pokedex/full/$id.png";
+  static String getPokemonSprite(String id) => 'assets/gen1/$id.png';
 }

@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex/cubit/cubit.dart';
@@ -48,8 +47,11 @@ class EvolutionsChart extends StatelessWidget {
 
 class _EvolutionRow extends StatelessWidget {
   final String currentForm, evolvedForm;
-  final String? reason;
-  const _EvolutionRow({Key? key, required this.currentForm, required this.evolvedForm, this.reason}) : super(key: key);
+  const _EvolutionRow({
+    Key? key,
+    required this.currentForm,
+    required this.evolvedForm,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -57,13 +59,7 @@ class _EvolutionRow extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () {},
-          child: _sizedContainer(
-            CachedNetworkImage(
-              imageUrl: Constants.getPokemonSprite(currentForm),
-              placeholder: (context, url) => const CircularProgressIndicator(),
-              errorWidget: (context, url, error) => const Icon(Icons.error),
-            ),
-          ),
+          child: getAsset(currentForm),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 4.0),
@@ -74,19 +70,12 @@ class _EvolutionRow extends StatelessWidget {
                 height: 65,
                 child: Image.asset('assets/arrow.png'),
               ),
-              if (reason != null && reason!.isNotEmpty) Text(reason!, style: const TextStyle(color: Colors.white)),
             ],
           ),
         ),
         GestureDetector(
           onTap: () {},
-          child: _sizedContainer(
-            CachedNetworkImage(
-              imageUrl: Constants.getPokemonSprite(evolvedForm),
-              placeholder: (context, url) => const CircularProgressIndicator(),
-              errorWidget: (context, url, error) => const Icon(Icons.error),
-            ),
-          ),
+          child: getAsset(evolvedForm),
         ),
       ],
     );
@@ -108,11 +97,12 @@ class _EvolutionRow extends StatelessWidget {
 
  */
 
-  Widget _sizedContainer(Widget child) {
-    return SizedBox(
+  Widget getAsset(String id) {
+    return Image.asset(
+      Constants.getPokemonSprite(evolvedForm),
+      fit: BoxFit.cover,
       width: 125.0,
       height: 125.0,
-      child: child,
     );
   }
 }
