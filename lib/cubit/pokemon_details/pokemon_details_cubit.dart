@@ -45,6 +45,6 @@ class PokemonDetailsCubit extends Cubit<PokemonDetailsState> {
   }
 
   bool _hasSingleEvolution(Evolution evolutionChain) {
-    return evolutionChain.id == evolutionChain.evolutions![0] && evolutionChain.evolutions!.length <= 2;
+    return evolutionChain.id == evolutionChain.evolutions![0] && evolutionChain.evolutions!.length < 2;
   }
 }

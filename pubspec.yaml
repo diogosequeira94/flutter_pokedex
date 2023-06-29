@@ -13,6 +13,7 @@ dependencies:
   flutter_bloc: ^8.1.3
   mocktail: ^0.3.0
   bloc_test: ^9.1.3
+  cached_network_image: ^3.2.3
 
   pokemon:
     path: repositories/pokemon
@@ -30,6 +31,7 @@ flutter:
   assets:
     - assets/gen1/
     - assets/pokedex.png
+    - assets/arrow.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

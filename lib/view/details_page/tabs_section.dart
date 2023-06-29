@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/utils/constants.dart';
-import 'package:pokedex/view/details_page/about/evolutions_chart.dart';
+import 'package:pokedex/view/details_page/tabs/evolutions_chart.dart';
 import 'package:pokedex/view/details_page/details_page.dart';
 import 'package:pokemon/pokemon.dart';
 
@@ -23,7 +23,7 @@ class TabsSection extends StatelessWidget {
         key: const Key('tabsSection_tabController'),
         length: 4,
         child: SizedBox(
-          height: 300.0,
+          height: 275.0,
           child: Column(
             children: <Widget>[
               const TabBar(
