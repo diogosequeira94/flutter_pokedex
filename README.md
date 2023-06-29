@@ -12,24 +12,24 @@ A digital Pokémon encyclopedia that has information of a Pokémon statistics, a
 
 ## Todos
 
+- [x] Repository Layer
 - [x] Home
 - [x] Details Screen
-- [x] Repository 
 - [x] Pokedex - Gen I Sprites
 - [x] Pokemon Info
+- [x] Details Screen Tabs
 - [x] Pokemon Info - Abilities
 - [x] Pokemon Info - Base Stats
 - [x] Pokemon Info - Moves
 - [x] Pokemon Info / Species - About
-- [x] Details Screen Tabs
+- [x] Pokemon Info - Evolution
+- [x] Navigation to Evolution
 - [x] SearchBox
 - [x] Repository Unit testing
 - [x] Cubit Unit testing
 - [x] Widget testing
 - [ ] Pokedex AppBar
-- [x] Pokemon Info - Evolution
 - [ ] Add support for Legendary/Mythical/Baby
 - [ ] Local Cache
-- [ ] Improve Architecture
 - [ ] Setup Actions
 - [ ] Themes Support

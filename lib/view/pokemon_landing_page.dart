@@ -43,7 +43,8 @@ class PokemonLandingPage extends StatelessWidget {
                       physics: const ScrollPhysics(),
                       shrinkWrap: true,
                       gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                        maxCrossAxisExtent: 200,
+                        maxCrossAxisExtent: 250,
+                        mainAxisExtent: 200,
                         childAspectRatio: 3 / 2,
                         crossAxisSpacing: 10,
                         mainAxisSpacing: 10,

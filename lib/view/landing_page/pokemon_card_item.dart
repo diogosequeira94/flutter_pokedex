@@ -44,13 +44,14 @@ class PokemonCardItem extends StatelessWidget {
               key: const Key('pokeCard_sprite'),
               Constants.getPokemonSprite(pokeItem.number.normalizeIndex()),
               fit: BoxFit.cover,
-              width: 80.0,
-              height: 80.0,
+              width: 100.0,
+              height: 100.0,
             ),
             const SizedBox(height: 4.0),
             Text(
               pokeItem.name.capitalize(),
               key: const Key('pokeCard_name'),
+              style: const TextStyle(fontSize: 16.0),
             ),
             Text(
               '#${pokeItem.number.normalizeIndex()}',
