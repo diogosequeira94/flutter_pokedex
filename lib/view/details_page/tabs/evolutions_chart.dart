@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex/cubit/cubit.dart';
-import 'package:pokemon/pokemon.dart';
+import 'package:pokedex/utils/utils.dart';
 
 class EvolutionsChart extends StatelessWidget {
   const EvolutionsChart({super.key});
@@ -59,7 +59,7 @@ class _EvolutionRow extends StatelessWidget {
           onTap: () {},
           child: _sizedContainer(
             CachedNetworkImage(
-              imageUrl: PokemonEndpoints.getPokemonSprite(currentForm),
+              imageUrl: Constants.getPokemonSprite(currentForm),
               placeholder: (context, url) => const CircularProgressIndicator(),
               errorWidget: (context, url, error) => const Icon(Icons.error),
             ),
@@ -82,7 +82,7 @@ class _EvolutionRow extends StatelessWidget {
           onTap: () {},
           child: _sizedContainer(
             CachedNetworkImage(
-              imageUrl: PokemonEndpoints.getPokemonSprite(evolvedForm),
+              imageUrl: Constants.getPokemonSprite(evolvedForm),
               placeholder: (context, url) => const CircularProgressIndicator(),
               errorWidget: (context, url, error) => const Icon(Icons.error),
             ),

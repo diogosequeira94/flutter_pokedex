@@ -9,5 +9,4 @@ class PokemonEndpoints {
   /// GitHub endpoints
   static String getEvolutions() =>
       'https://gist.github.com/diogosequeira94/55eef831ef1918ae8126af163e75d13c/raw/evolutions.json';
-  static String getPokemonSprite(String id) => "https://assets.pokemon.com/assets/cms2/img/pokedex/full/$id.png";
 }

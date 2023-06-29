@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex/cubit/generation/model/pokemon_basic_item.dart';
 import 'package:pokedex/cubit/pokemon_details/pokemon_details_cubit.dart';
-import 'package:pokedex/utils/extensions.dart';
+import 'package:pokedex/utils/utils.dart';
 import 'package:pokedex/view/pokemon_details_page.dart';
 
 class PokemonCardItem extends StatelessWidget {
@@ -34,7 +34,7 @@ class PokemonCardItem extends StatelessWidget {
           children: [
             Image.asset(
               key: const Key('pokeCard_sprite'),
-              'assets/gen1/${pokeItem.name}.png',
+              'assets/gen1/${pokeItem.number.normalizeIndex()}.png',
               fit: BoxFit.cover,
               width: 80.0,
               height: 80,
