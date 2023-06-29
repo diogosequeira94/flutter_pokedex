@@ -10,6 +10,7 @@ class TabsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 12.0),
       decoration: const BoxDecoration(
@@ -23,7 +24,7 @@ class TabsSection extends StatelessWidget {
         key: const Key('tabsSection_tabController'),
         length: 4,
         child: SizedBox(
-          height: 275.0,
+          height: screenHeight / 2.5,
           child: Column(
             children: <Widget>[
               const TabBar(

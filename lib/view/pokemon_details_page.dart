@@ -1,3 +1,4 @@
+import 'package:expandable_bottom_sheet/expandable_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex/cubit/pokemon_details/pokemon_details_cubit.dart';
@@ -24,26 +25,29 @@ class PokemonDetailsPage extends StatelessWidget {
             );
           } else if (state is PokemonDetailsSuccess) {
             final pokemon = state.pokemon;
-            return SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  PokeSpriteInfo(
-                    pokemonName: state.pokemon.name,
-                    pokemonIndex: state.pokemon.id,
-                  ),
-                  TypePillsWidget(types: state.pokemon.types),
-                  const SizedBox(height: 30.0),
-                  PokeDescription(description: pokemon.description!),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 45.0),
-                    child: TabsSection(
-                      pokemon: state.pokemon,
+            return ExpandableBottomSheet(
+              background: SingleChildScrollView(
+                physics: const AlwaysScrollableScrollPhysics(),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    PokeSpriteInfo(
+                      pokemonName: state.pokemon.name,
+                      pokemonIndex: state.pokemon.id,
                     ),
-                  ),
-                  //StatsWidget(statsList: state.pokemon.stats),
-                ],
+                    TypePillsWidget(types: state.pokemon.types),
+                    const SizedBox(height: 30.0),
+                    PokeDescription(description: pokemon.description!), //StatsWidget(statsList: state.pokemon.stats),
+                  ],
+                ),
+              ),
+              persistentContentHeight: 300,
+              expandableContent: Padding(
+                padding: const EdgeInsets.only(top: 45.0),
+                child: TabsSection(
+                  pokemon: state.pokemon,
+                ),
               ),
             );
           } else if (state is PokemonDetailsFailure) {
