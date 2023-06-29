@@ -15,7 +15,7 @@ class PokemonLandingPage extends StatelessWidget {
           if (state is FetchFirstGenSuccess) {
             return FloatingActionButton(
                 child: Icon(
-                    state.pokemonViewMode == PokemonViewMode.listView ? Icons.list_rounded : Icons.grid_view_rounded),
+                    state.pokemonViewMode == PokemonViewMode.listView ? Icons.grid_view : Icons.list_rounded),
                 onPressed: () {
                   context.read<GenerationCubit>().toggleViewMode();
                 });
