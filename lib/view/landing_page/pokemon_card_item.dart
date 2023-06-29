@@ -15,7 +15,6 @@ class PokemonCardItem extends StatelessWidget {
       key: const Key('landingPage_pokemonItemCard'),
       onTap: () {
         context.read<PokemonDetailsCubit>().fetchPokemonDetailsByName(pokeItem.name);
-        print('TAPPED');
         Navigator.push(
           context,
           MaterialPageRoute(
@@ -35,7 +34,7 @@ class PokemonCardItem extends StatelessWidget {
           children: [
             Image.asset(
               key: const Key('pokeCard_sprite'),
-              'assets/gen1/${pokeItem.name}.jpeg',
+              'assets/gen1/${pokeItem.name}.png',
               fit: BoxFit.cover,
               width: 80.0,
               height: 80,
