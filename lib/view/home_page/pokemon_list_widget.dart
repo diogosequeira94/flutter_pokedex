@@ -12,7 +12,7 @@ class PokemonListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 10.0),
+      padding: const EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 10.0),
       child: ListView.builder(
         key: const Key('landingPage_pokemonList'),
         physics: const ScrollPhysics(),
@@ -20,38 +20,44 @@ class PokemonListWidget extends StatelessWidget {
         itemCount: pokemonList.length,
         itemBuilder: (context, index) {
           final pokeItem = pokemonList[index];
-          return ListTile(
-            leading: Image.asset(
-              key: const Key('pokeListItem_sprite'),
-              Constants.getPokemonSprite(pokeItem.number.normalizeIndex()),
-              fit: BoxFit.cover,
-              width: 50.0,
-              height: 50.0,
-            ),
-            title: Text(pokeItem.name.capitalize()),
-            subtitle: Text(
-              '#${pokeItem.number.normalizeIndex()}',
-              key: const Key('pokeListItem_number'),
-            ),
-            onTap: () {
-              context.read<PokemonDetailsCubit>().fetchPokemonDetailsByName(pokeItem.name);
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (_) => MultiBlocProvider(
-                    providers: [
-                      BlocProvider.value(
-                        value: context.read<PokemonDetailsCubit>(),
-                      ),
-                      BlocProvider.value(
-                        value: context.read<GenerationCubit>(),
-                      )
-                    ],
-                    child: const PokemonDetailsPage(),
+          return Card(
+            child: ListTile(
+              contentPadding: const EdgeInsets.only(left: 8.0),
+              leading: Image.asset(
+                key: const Key('pokeListItem_sprite'),
+                Constants.getPokemonSprite(pokeItem.number.normalizeIndex()),
+                fit: BoxFit.cover,
+                width: 50.0,
+                height: 50.0,
+              ),
+              title: Text(
+                pokeItem.name.capitalize(),
+                style: const TextStyle(fontSize: 16.5),
+              ),
+              subtitle: Text(
+                '#${pokeItem.number.normalizeIndex()}',
+                key: const Key('pokeListItem_number'),
+              ),
+              onTap: () {
+                context.read<PokemonDetailsCubit>().fetchPokemonDetailsByName(pokeItem.name);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => MultiBlocProvider(
+                      providers: [
+                        BlocProvider.value(
+                          value: context.read<PokemonDetailsCubit>(),
+                        ),
+                        BlocProvider.value(
+                          value: context.read<GenerationCubit>(),
+                        )
+                      ],
+                      child: const PokemonDetailsPage(),
+                    ),
                   ),
-                ),
-              );
-            },
+                );
+              },
+            ),
           );
         },
       ),

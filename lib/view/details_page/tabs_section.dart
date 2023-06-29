@@ -12,7 +12,7 @@ class TabsSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 12.0),
+      padding: const EdgeInsets.fromLTRB(12.0, 10.0, 12.0, 30.0),
       decoration: const BoxDecoration(
         color: Colors.redAccent,
         borderRadius: BorderRadius.only(
@@ -27,6 +27,10 @@ class TabsSection extends StatelessWidget {
           height: screenHeight / 2.5,
           child: Column(
             children: <Widget>[
+              const Icon(
+                Icons.maximize_rounded,
+                color: Colors.white,
+              ),
               const TabBar(
                 indicatorColor: Colors.white,
                 labelPadding: EdgeInsets.zero,

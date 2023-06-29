@@ -42,7 +42,7 @@ class PokemonDetailsPage extends StatelessWidget {
                   ],
                 ),
               ),
-              persistentContentHeight: 300,
+              persistentContentHeight: 310,
               expandableContent: Padding(
                 padding: const EdgeInsets.only(top: 45.0),
                 child: TabsSection(
