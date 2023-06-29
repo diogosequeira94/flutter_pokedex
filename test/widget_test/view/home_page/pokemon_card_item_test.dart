@@ -3,7 +3,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:pokedex/cubit/cubit.dart';
 import 'package:pokedex/view/home_page/home_page.dart';
-import 'package:pokedex/view/pokemon_details_page.dart';
 
 import '../../../helpers/widget_test_helper.dart';
 import '../../../mocks/unit_test_mocks.dart';
