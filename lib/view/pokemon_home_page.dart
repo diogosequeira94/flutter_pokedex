@@ -3,8 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex/cubit/cubit.dart';
 import 'package:pokedex/utils/utils.dart';
 import 'package:pokedex/view/home_page/home_page.dart';
-import 'package:pokedex/view/home_page/pokemon_grid_widget.dart';
-import 'package:pokedex/view/home_page/pokemon_list_widget.dart';
 
 class PokemonLandingPage extends StatelessWidget {
   const PokemonLandingPage({Key? key}) : super(key: key);
@@ -12,11 +10,19 @@ class PokemonLandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-          child: const Icon(Icons.list_rounded),
-          onPressed: () {
-            context.read<GenerationCubit>().toggleViewMode();
-          }),
+      floatingActionButton: BlocBuilder<GenerationCubit, GenerationState>(
+        builder: (context, state) {
+          if (state is FetchFirstGenSuccess) {
+            return FloatingActionButton(
+                child: Icon(
+                    state.pokemonViewMode == PokemonViewMode.listView ? Icons.list_rounded : Icons.grid_view_rounded),
+                onPressed: () {
+                  context.read<GenerationCubit>().toggleViewMode();
+                });
+          }
+          return const SizedBox.shrink();
+        },
+      ),
       body: BlocBuilder<GenerationCubit, GenerationState>(
         builder: (context, state) {
           if (state is FetchFirstGenFailure) {

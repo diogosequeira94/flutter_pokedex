@@ -25,6 +25,7 @@ A digital Pokémon encyclopedia that has information of a Pokémon statistics, a
 - [x] Pokemon Info - Evolution
 - [x] Navigation to Evolution
 - [x] SearchBox
+- [x] Toggle View Mode
 - [x] Repository Unit testing
 - [x] Cubit Unit testing
 - [x] Widget testing

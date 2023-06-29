@@ -28,7 +28,7 @@ class PokemonListWidget extends StatelessWidget {
               width: 50.0,
               height: 50.0,
             ),
-            title: Text(pokeItem.name),
+            title: Text(pokeItem.name.capitalize()),
             subtitle: Text(
               '#${pokeItem.number.normalizeIndex()}',
               key: const Key('pokeListItem_number'),

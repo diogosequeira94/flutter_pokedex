@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         BlocProvider<GenerationCubit>(
           create: (context) => GenerationCubit(
             pokemonRepository: PokemonRepository.instance,
-          ),
+          )..fetchPokemonGeneration(),
         ),
         BlocProvider<PokemonDetailsCubit>(
           create: (context) => PokemonDetailsCubit(
