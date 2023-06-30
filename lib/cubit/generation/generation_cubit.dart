@@ -49,7 +49,7 @@ class GenerationCubit extends Cubit<GenerationState> {
 
   void searchBoxChanged(String query) {
     var tempList = pokemonList.where((pokemon) => pokemon.name.toLowerCase().contains(query.toLowerCase())).toList();
-    emit(SearchBoxChangedSuccess(pokemonList: tempList));
+    emit(SearchBoxChangedSuccess(pokemonList: tempList, pokemonViewMode: selectedViewMode));
   }
 
   void toggleViewMode() {

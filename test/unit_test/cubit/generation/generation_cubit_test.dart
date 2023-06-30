@@ -64,7 +64,10 @@ void main() {
         cubit.searchBoxChanged('');
       },
       expect: () => [
-        const SearchBoxChangedSuccess(pokemonList: []),
+        const SearchBoxChangedSuccess(
+          pokemonList: [],
+          pokemonViewMode: PokemonViewMode.gridView,
+        ),
       ],
     );
 
@@ -76,7 +79,10 @@ void main() {
         cubit.searchBoxChanged('Me');
       },
       expect: () => [
-        SearchBoxChangedSuccess(pokemonList: [mockPokemonList[0]]),
+        SearchBoxChangedSuccess(
+          pokemonList: [mockPokemonList[0]],
+          pokemonViewMode: PokemonViewMode.gridView,
+        ),
       ],
     );
 
@@ -88,7 +94,10 @@ void main() {
         cubit.searchBoxChanged('Rattata');
       },
       expect: () => [
-        const SearchBoxChangedSuccess(pokemonList: []),
+        const SearchBoxChangedSuccess(
+          pokemonList: [],
+          pokemonViewMode: PokemonViewMode.gridView,
+        ),
       ],
     );
   });

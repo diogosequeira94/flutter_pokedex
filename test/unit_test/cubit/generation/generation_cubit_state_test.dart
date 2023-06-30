@@ -43,8 +43,11 @@ void main() {
     group('SearchBoxChangedSuccess', () {
       test('props', () {
         expect(
-          const SearchBoxChangedSuccess(pokemonList: []).props,
-          [[]],
+          const SearchBoxChangedSuccess(
+            pokemonList: [],
+            pokemonViewMode: PokemonViewMode.listView,
+          ).props,
+          [[], PokemonViewMode.listView],
         );
       });
     });
