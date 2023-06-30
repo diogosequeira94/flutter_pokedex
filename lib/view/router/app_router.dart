@@ -17,19 +17,7 @@ class AppRouter {
   Route onGenerateRoute(RouteSettings routeSettings) {
     switch (routeSettings.name) {
       case '/':
-        return MaterialPageRoute(
-          builder: (_) => MultiBlocProvider(
-            providers: [
-              BlocProvider<GenerationCubit>.value(
-                value: _generationCubit,
-              ),
-              BlocProvider<PokemonDetailsCubit>.value(
-                value: _detailsCubit,
-              ),
-            ],
-            child: const PokedexPageCase(),
-          ),
-        );
+        return MaterialPageRoute(builder: (_) =>  const PokedexPageCase());
       case '/home':
         return MaterialPageRoute(
           builder: (_) => MultiBlocProvider(providers: [
