@@ -1,9 +1,5 @@
 # Pokédex
 
-[![Awesome Flutter](https://img.shields.io/badge/Awesome-Flutter-blue.svg)](https://github.com/Solido/awesome-flutter)
-[![License](https://img.shields.io/badge/License-Apache%202.0-red.svg)](LICENSE)
-[![License](https://img.shields.io/badge/License-MIT-red.svg)](LICENSE)
-
 A digital Pokémon encyclopedia that has information of a Pokémon statistics, abilities, moves and evolutions. Uses Flutter BLoC as state management solution and gets data from pokeapi.co.
 
 ## Preview
