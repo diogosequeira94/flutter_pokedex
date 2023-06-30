@@ -9,6 +9,7 @@ A digital Pokémon encyclopedia that has information of a Pokémon statistics, a
 ## Preview
 
 <p align="left">
+    <img src="https://github.com/diogosequeira94/flutter_pokedex/assets/17165238/7abcc601-ddc0-44ce-8893-99ea8b4618aa" width="250px"/>  
     <img src="https://github.com/diogosequeira94/flutter-pokedex/assets/17165238/8c35f1fe-842d-4db7-a6f0-e07d13552a3f" width="250px"/>  
     <img src="https://github.com/diogosequeira94/flutter-pokedex/assets/17165238/a504b00a-7ae4-4e29-9c80-60ac2029d7dd" width="250px"/>
       <img src="https://github.com/diogosequeira94/flutter-pokedex/assets/17165238/a48060d8-e07e-4412-95d6-081b0898006d" width="250px"/>  
