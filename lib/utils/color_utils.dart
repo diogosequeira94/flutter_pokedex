@@ -33,6 +33,8 @@ class ColorUtils {
         return Colors.indigo;
       case 'dragon':
         return Colors.redAccent.shade400;
+      case 'steel':
+        return Colors.grey.shade700;
     }
     return Colors.amber;
   }

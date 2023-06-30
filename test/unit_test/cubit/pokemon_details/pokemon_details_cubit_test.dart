@@ -31,6 +31,7 @@ void main() {
         when(() => pokemonRepository.getPokemonByName(name: 'Pickachu')).thenAnswer((_) => Future.value(mockPokemon));
         when(() => pokemonRepository.getSpeciesInformation(name: 'Pickachu'))
             .thenAnswer((_) => Future.value(mockSpeciesResponse));
+        when(() => pokemonRepository.getEvolutions()).thenAnswer((_) => Future.value(mockEvolutionList));
 
         await cubit.fetchPokemonDetailsByName('Pickachu');
       },
@@ -40,6 +41,7 @@ void main() {
           pokemon: mockPokemon.copyWith(
             description: mockSpeciesResponse.flavorTextEntries[0].flavorText,
             habitat: mockSpeciesResponse.habitat.name,
+            evolutions: mockEvolutionList[0],
           ),
         ),
       ],

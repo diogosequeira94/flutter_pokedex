@@ -26,7 +26,7 @@ void main() {
       test('props', () {
         expect(
           const FetchFirstGenSuccess(pokemonList: []).props,
-          [[]],
+          [[], PokemonViewMode.gridView],
         );
       });
     });

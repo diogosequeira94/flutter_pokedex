@@ -30,3 +30,22 @@ const mockSpeciesResponse = SpeciesResponse(
   isLegendary: false,
   isMythical: false,
 );
+
+const mockEvolutionList = [
+  Evolution(
+    name: 'Ivysaur',
+    id: '2',
+    imageUrl: 'imageUrl',
+    evolutions: ['001', '002', '003'],
+    evolvedFrom: '001',
+    reason: 'Level Up',
+  ),
+  Evolution(
+    name: 'Venusaur',
+    id: '3',
+    imageUrl: 'imageUrl',
+    evolutions: ['001', '002', '003'],
+    evolvedFrom: '002',
+    reason: 'Level Up',
+  ),
+];
