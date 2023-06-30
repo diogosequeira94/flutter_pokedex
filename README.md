@@ -6,9 +6,18 @@
 
 A digital Pokémon encyclopedia that has information of a Pokémon statistics, abilities, moves and evolutions. Uses Flutter BLoC as state management solution and gets data from pokeapi.co.
 
-## Demo
+## Preview
 
-![demo](https://github.com/diogosequeira94/flutter-pokedex/assets/17165238/77053c97-6790-4f08-8eca-512fc3242776)
+<p align="left">
+    <img src="https://github.com/diogosequeira94/flutter-pokedex/assets/17165238/8c35f1fe-842d-4db7-a6f0-e07d13552a3f" width="250px"/>  
+    <img src="https://github.com/diogosequeira94/flutter-pokedex/assets/17165238/a504b00a-7ae4-4e29-9c80-60ac2029d7dd" width="250px"/>
+      <img src="https://github.com/diogosequeira94/flutter-pokedex/assets/17165238/a48060d8-e07e-4412-95d6-081b0898006d" width="250px"/>  
+    <img src="https://github.com/diogosequeira94/flutter-pokedex/assets/17165238/83351d1e-14c9-4e8e-9e00-94fba9021611" width="250px"/>
+      <img src="https://github.com/diogosequeira94/flutter-pokedex/assets/17165238/5175e4c0-9de1-4a4d-8efa-fdd2e4219b87" width="250px"/>  
+    <img src="https://github.com/diogosequeira94/flutter-pokedex/assets/17165238/4114820c-4273-4a68-a221-e32ddfdd910c" width="250px"/>
+       <img src="https://github.com/diogosequeira94/flutter-pokedex/assets/17165238/c361f55c-acb4-4c0a-9962-488b92f92599" width="250px"/>  
+    <img src="https://github.com/diogosequeira94/flutter-pokedex/assets/17165238/13629076-0d8d-4980-bcfa-a6135223b1fd" width="250px"/>
+</p>
 
 ## Todos
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/utils/constants.dart';
-import 'package:pokedex/view/details_page/tabs/evolutions_chart.dart';
-import 'package:pokedex/view/details_page/details_page.dart';
+import 'package:pokedex/view/widgets/details_page/about/about_widget.dart';
+import 'package:pokedex/view/widgets/details_page/tabs/tabs.dart';
 import 'package:pokemon/pokemon.dart';
 
 class TabsSection extends StatelessWidget {

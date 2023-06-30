@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pokedex/cubit/cubit.dart';
-import 'package:pokedex/view/pokedex_case/pokedex_case_page.dart';
-import 'package:pokemon/pokemon.dart';
+import 'package:pokedex/view/router/app_router.dart';
+
+import 'view/screens/screens.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  final AppRouter _appRouter = AppRouter();
 
   @override
   Widget build(BuildContext context) {
@@ -19,18 +25,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: MultiBlocProvider(providers: [
-        BlocProvider<GenerationCubit>(
-          create: (context) => GenerationCubit(
-            pokemonRepository: PokemonRepository.instance,
-          )..fetchPokemonGeneration(),
-        ),
-        BlocProvider<PokemonDetailsCubit>(
-          create: (context) => PokemonDetailsCubit(
-            PokemonRepository.instance,
-          ),
-        ),
-      ], child: const PokedexPageCase()),
+      onGenerateRoute: _appRouter.onGenerateRoute,
+      home: const PokedexPageCase(),
     );
+  }
+
+  @override
+  void dispose() {
+    _appRouter.dispose();
+    super.dispose();
   }
 }

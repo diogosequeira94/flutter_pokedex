@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex/cubit/cubit.dart';
 import 'package:pokedex/cubit/generation/model/pokemon_basic_item.dart';
 import 'package:pokedex/utils/utils.dart';
-import 'package:pokedex/view/pokemon_details_page.dart';
 
 class PokemonCardItem extends StatelessWidget {
   final PokemonBasicItem pokeItem;
@@ -15,22 +14,7 @@ class PokemonCardItem extends StatelessWidget {
       key: const Key('landingPage_pokemonItemCard'),
       onTap: () {
         context.read<PokemonDetailsCubit>().fetchPokemonDetailsByName(pokeItem.name);
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (_) => MultiBlocProvider(
-              providers: [
-                BlocProvider.value(
-                  value: context.read<PokemonDetailsCubit>(),
-                ),
-                BlocProvider.value(
-                  value: context.read<GenerationCubit>(),
-                )
-              ],
-              child: const PokemonDetailsPage(),
-            ),
-          ),
-        );
+        Navigator.of(context).pushNamed('/details');
       },
       child: Card(
         shape: RoundedRectangleBorder(

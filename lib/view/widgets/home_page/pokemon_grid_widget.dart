@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/cubit/generation/model/pokemon_basic_item.dart';
-import 'package:pokedex/view/home_page/pokemon_card_item.dart';
+import 'package:pokedex/view/widgets/home_page/pokemon_card_item.dart';
 
 class PokemonGridWidget extends StatelessWidget {
   final List<PokemonBasicItem> pokemonList;

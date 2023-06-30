@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex/cubit/cubit.dart';
 import 'package:pokedex/utils/utils.dart';
-import 'package:pokedex/view/home_page/home_page.dart';
+
+import '../widgets/home_page/home_page.dart';
 
 class PokemonHomePage extends StatelessWidget {
   const PokemonHomePage({Key? key}) : super(key: key);
