@@ -36,7 +36,3 @@ A digital Pokémon encyclopedia that has information of a Pokémon statistics, a
 - [x] Cubit Unit testing
 - [x] Widget testing
 - [x] Added Pokédex opening animation on app start
-- [ ] Pokedex AppBar
-- [ ] Add support for Legendary/Mythical/Baby
-- [ ] Setup Actions
-- [ ] Themes Support
